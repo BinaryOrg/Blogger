@@ -12,6 +12,7 @@
 #import "GODDefine.h"
 
 #import "GODMainViewController.h"
+#import "GODMusicViewController.h"
 #import "GODPersonViewController.h"
 @implementation GODLaunchManager
 + (instancetype)sharedInstance {
@@ -31,12 +32,15 @@
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     
     GODMainViewController *main = [[GODMainViewController alloc] init];
+    GODMusicViewController *music = [[GODMusicViewController alloc] init];
     GODPersonViewController *person = [[GODPersonViewController alloc] init];
     UINavigationController *mainNavi = [[UINavigationController alloc] initWithRootViewController:main];
     UINavigationController *personNavi = [[UINavigationController alloc] initWithRootViewController:person];
+    UINavigationController *musicNavi = [[UINavigationController alloc] initWithRootViewController:music];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[
                                          mainNavi,
+                                         musicNavi,
                                          personNavi
                                          ];
     window.rootViewController = tabBarController;

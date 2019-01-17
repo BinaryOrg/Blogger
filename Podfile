@@ -14,5 +14,7 @@ pod ‘MFPictureBrowser’
 pod ‘MJRefresh’
 pod ‘MBProgressHUD’
 pod 'DZNEmptyDataSet'
-pod 'JPush'
+# pod 'JPush'
+pod 'FFPopup'
+pod 'FreeStreamer', '~> 3.8.2'
 end

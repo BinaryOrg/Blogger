@@ -14,6 +14,7 @@
 #import <MFNetworkManager/MFNetworkManager.h>
 #import <MJRefresh.h>
 #import <YYWebImage.h>
+#import <FreeStreamer/FSAudioStream.h>
 #import "GODMusicModel.h"
 #import "GODMusicTableViewCell.h"
 @interface GODMusicViewController ()
@@ -28,9 +29,18 @@ DZNEmptyDataSetDelegate
 @property (nonatomic ,strong) NSMutableArray *musicList;
 @property (nonatomic, assign) BOOL listEmpty;
 @property (nonatomic, assign) BOOL shouldDisplay;
+@property (nonatomic, strong) FSAudioStream *audioStream;
+@property (nonatomic, assign) NSInteger playId;
 @end
 
 @implementation GODMusicViewController
+
+- (FSAudioStream *)audioStream {
+    if (!_audioStream) {
+        _audioStream = [[FSAudioStream alloc] init];
+    }
+    return _audioStream;
+}
 
 - (NSMutableArray *)musicList {
     if (!_musicList) {
@@ -48,21 +58,6 @@ DZNEmptyDataSetDelegate
         _tableView.emptyDataSetDelegate = self;
         _tableView.tableFooterView = [[UIView alloc] init];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        __weak typeof(self) weakSelf = self;
-        
-        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [weakSelf mf_refreshData];
-        }];
-        header.lastUpdatedTimeLabel.hidden = YES;
-        header.stateLabel.textColor = [UIColor customGrayColor];
-        header.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-        
-        _tableView.mj_header = header;
-        
-        [header setTitle:@"下拉可以刷新" forState:MJRefreshStateIdle];
-        [header setTitle:@"松开立即刷新" forState:MJRefreshStatePulling];
-        [header setTitle:@"正在刷新数据" forState:MJRefreshStateRefreshing];
-        _tableView.tag = 10000;
     }
     return _tableView;
 }
@@ -78,51 +73,12 @@ DZNEmptyDataSetDelegate
     }
 }
 
-- (void)mf_refreshData {
-    [MFNETWROK get:@"blogs/year/all" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
-        NSLog(@"success");
-        NSMutableArray *list = [NSMutableArray array];
-        for (NSDictionary *dic in result) {
-            GODMusicModel *model = [GODMusicModel yy_modelWithJSON:dic];
-            [list addObject:model];
-        }
-        if (list.count) {
-            if (self.musicList.count) {
-                [self.musicList removeAllObjects];
-            }
-            [self.musicList addObjectsFromArray:list];
-            if ([self.tableView.mj_header isRefreshing]) {
-                [self.tableView.mj_header endRefreshing];
-            }
-            self.listEmpty = NO;
-            
-        }else {
-            if ([self.tableView.mj_header isRefreshing]) {
-                [self.tableView.mj_header endRefreshing];
-            }
-            self.listEmpty = YES;
-        }
-        self.shouldDisplay = NO;
-        [self.tableView reloadData];
-    } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
-        if ([self.tableView.mj_header isRefreshing]) {
-            [self.tableView.mj_header endRefreshing];
-        }
-        if (self.musicList.count) {
-            [self.musicList removeAllObjects];
-        }
-        self.listEmpty = NO;
-        self.shouldDisplay = NO;
-        [self.tableView reloadData];
-    }];
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
         UIImage *image = [UIImage imageNamed:@"iosAllNotes_24x24_"];
         UIImage *selectedImage = [[UIImage imageNamed:@"iosAllNotesS_24x24_"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Blogger" image:image selectedImage:selectedImage];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Music" image:image selectedImage:selectedImage];
         [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];
     }
     return self;
@@ -131,6 +87,7 @@ DZNEmptyDataSetDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     MFNETWROK.delegate = self;
+    self.playId = -1;
     self.title = @"Music";
     self.view.backgroundColor = [UIColor whiteColor];
     self.shouldDisplay = YES;
@@ -146,7 +103,7 @@ DZNEmptyDataSetDelegate
 }
 
 - (void)sendFirstRequest {
-    [MFNETWROK get:@"blogs/year/all" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+    [MFNETWROK get:@"music" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
         NSLog(@"success");
         NSMutableArray *list = [NSMutableArray array];
         for (NSDictionary *dic in result) {
@@ -196,14 +153,83 @@ DZNEmptyDataSetDelegate
 - (void)configCell:(GODMusicTableViewCell *)cell withModel:(GODMusicModel *)model {
     [cell.playButton addTarget:self action:@selector(cellButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
     
-    [cell.musicImageView yy_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@""]] options:YYWebImageOptionProgressiveBlur|YYWebImageOptionSetImageWithFadeAnimation];
-    cell.titleLabel.text = nil;
-    cell.summaryLabel.text = nil;
-    cell.songNameLabel.text = nil;
+    [cell.musicImageView yy_setImageWithURL:[NSURL URLWithString:model.thumb] options:YYWebImageOptionProgressiveBlur|YYWebImageOptionSetImageWithFadeAnimation];
+    cell.titleLabel.text = model.title;
+    cell.durationLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", model.music_duration/60, model.music_duration%60];
+    if (model.isPlaying) {
+        [cell.playButton setImage:[UIImage imageNamed:@"icon-player-pause-button"] forState:UIControlStateNormal];
+    }else {
+        [cell.playButton setImage:[UIImage imageNamed:@"icon-player-play-button"] forState:UIControlStateNormal];
+    }
+    NSMutableParagraphStyle  *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:8];
+    [paragraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:model.summary];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [model.summary length])];
+    
+    cell.summaryLabel.attributedText = attributedString;
+    cell.artistLabel.text = model.artist;
 }
 
 - (void)cellButtonTouchUpInside:(UIButton *)sender {
+    GODMusicTableViewCell *cell = (GODMusicTableViewCell *)sender.superview.superview.superview.superview.superview;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    GODMusicModel *model = self.musicList[indexPath.row];
     
+    
+    if (self.playId == model.id) {
+        [self.audioStream pause];
+        model.isPlaying = !model.isPlaying;
+        [UIView performWithoutAnimation:^{
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }];
+    }else {
+        if (self.audioStream.isPlaying) {
+            for (NSInteger i = 0; i < self.musicList.count; i++) {
+                GODMusicModel *model = self.musicList[i];
+                if (model.id == self.playId) {
+                    model.isPlaying = NO;
+                    [UIView performWithoutAnimation:^{
+                        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    }];
+                    break;
+                }
+            }
+            [self.audioStream stop];
+        }
+        
+
+        __weak __typeof(self)weakSelf = self;
+        self.audioStream.onFailure = ^(FSAudioStreamError error,NSString *description){
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            strongSelf.playId = -1;
+            [strongSelf.audioStream stop];
+            model.isPlaying = NO;
+            [UIView performWithoutAnimation:^{
+                [strongSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }];
+        };
+        // 播放完成的回调
+        self.audioStream.onCompletion=^(){
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            strongSelf.playId = -1;
+            [strongSelf.audioStream stop];
+            model.isPlaying = NO;
+            [UIView performWithoutAnimation:^{
+                [strongSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }];
+        };
+        // 使用音频链接URL播放音频
+        NSURL *url = [NSURL URLWithString:model.music_url];
+
+        [self.audioStream playFromURL:url];
+        model.isPlaying = YES;
+        self.playId = model.id;
+        [UIView performWithoutAnimation:^{
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }];
+    }
+
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -211,7 +237,7 @@ DZNEmptyDataSetDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 260;
+    return 280;
 }
 
 #pragma mark - DZN

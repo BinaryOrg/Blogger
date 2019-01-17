@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GODTableCard.h"
 @interface GODMusicTableViewCell : UITableViewCell
-@property(nonatomic, strong) UIButton *playButton;
-@property(nonatomic, strong) UIImageView *musicImageView;
-@property(nonatomic, strong) UILabel *titleLabel;
-@property(nonatomic, strong) UILabel *summaryLabel;
-@property(nonatomic, strong) UILabel *songNameLabel;
-@property(nonatomic, strong) UILabel *artistLabel;
+@property (nonatomic ,strong) GODTableCard *containerView;
+@property (nonatomic, strong) UIButton *playButton;
+@property (nonatomic, strong) UIImageView *musicImageView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *summaryLabel;
+@property (nonatomic, strong) UILabel *songNameLabel;
+@property (nonatomic, strong) UILabel *artistLabel;
+@property (nonatomic, strong) UILabel *durationLabel;
 @end
