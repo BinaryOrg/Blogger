@@ -147,8 +147,8 @@ DZNEmptyDataSetDelegate
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    [[YYImageCache sharedCache].diskCache removeAllObjects];
-    [[YYImageCache sharedCache].memoryCache removeAllObjects];
+//    [[YYImageCache sharedCache].diskCache removeAllObjects];
+//    [[YYImageCache sharedCache].memoryCache removeAllObjects];
 }
 
 - (void)sendFirstRequest {

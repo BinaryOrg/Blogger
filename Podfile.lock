@@ -20,6 +20,7 @@ PODS:
     - Reachability (~> 3.0)
   - MBProgressHUD (1.1.0)
   - MFCategory (0.2.1)
+  - MFExtractColor (1.0.0)
   - MFHUDManager (0.1.5)
   - MFNetworkManager (0.3.0):
     - AFNetworking
@@ -300,6 +301,7 @@ DEPENDENCIES:
   - FFPopup
   - FreeStreamer (~> 3.8.2)
   - MBProgressHUD
+  - MFExtractColor
   - MFHUDManager
   - MFNetworkManager
   - MFPictureBrowser
@@ -315,6 +317,7 @@ SPEC REPOS:
     - FreeStreamer
     - MBProgressHUD
     - MFCategory
+    - MFExtractColor
     - MFHUDManager
     - MFNetworkManager
     - MFPictureBrowser
@@ -333,6 +336,7 @@ SPEC CHECKSUMS:
   FreeStreamer: b205b0bf6a2e7855f935369145498f930eb27cac
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MFCategory: 82ca2cf2d9d05540fc64224a85dcfa9ff31c1d63
+  MFExtractColor: 3f9e7be95e507f2b9f131627c8e01a8914f15be6
   MFHUDManager: 7b359671b0042d94cce27e94d3d3bca2a3f0f39e
   MFNetworkManager: 883cbb2beaa7338800cccc21b5959b27a248d6f8
   MFPictureBrowser: 3cb03836061ffed38568d88c6048c62eaafa1470
@@ -344,6 +348,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 0c0d99e11217d69560e5cb6536e310fc645f19c5
+PODFILE CHECKSUM: 00d8476450e42ed28d6e83512f6f94284ca91400
 
 COCOAPODS: 1.5.0

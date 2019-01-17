@@ -26,7 +26,7 @@
 
 - (void)launchInWindow:(UIWindow *)window {
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
-    [[UINavigationBar appearance] setTintColor:[UIColor customGrayColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor themeColor]];
     [[UITabBar appearance] setBarTintColor:[UIColor themeColor]];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];

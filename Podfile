@@ -17,4 +17,5 @@ pod 'DZNEmptyDataSet'
 # pod 'JPush'
 pod 'FFPopup'
 pod 'FreeStreamer', '~> 3.8.2'
+pod 'MFExtractColor'
 end

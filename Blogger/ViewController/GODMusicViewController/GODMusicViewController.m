@@ -15,8 +15,10 @@
 #import <MJRefresh.h>
 #import <YYWebImage.h>
 #import <FreeStreamer/FSAudioStream.h>
+
 #import "GODMusicModel.h"
 #import "GODMusicTableViewCell.h"
+#import "GODBackgroundViewController.h"
 @interface GODMusicViewController ()
 <
 UITableViewDelegate,
@@ -98,8 +100,8 @@ DZNEmptyDataSetDelegate
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    [[YYImageCache sharedCache].diskCache removeAllObjects];
-    [[YYImageCache sharedCache].memoryCache removeAllObjects];
+//    [[YYImageCache sharedCache].diskCache removeAllObjects];
+//    [[YYImageCache sharedCache].memoryCache removeAllObjects];
 }
 
 - (void)sendFirstRequest {
@@ -175,8 +177,8 @@ DZNEmptyDataSetDelegate
     GODMusicTableViewCell *cell = (GODMusicTableViewCell *)sender.superview.superview.superview.superview.superview;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     GODMusicModel *model = self.musicList[indexPath.row];
-    
-    
+    NSLog(@"%ld", (long)model.id);
+    NSLog(@"%ld", self.playId);
     if (self.playId == model.id) {
         [self.audioStream pause];
         model.isPlaying = !model.isPlaying;
@@ -201,6 +203,7 @@ DZNEmptyDataSetDelegate
 
         __weak __typeof(self)weakSelf = self;
         self.audioStream.onFailure = ^(FSAudioStreamError error,NSString *description){
+            NSLog(@"hahah");
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf.playId = -1;
             [strongSelf.audioStream stop];
@@ -219,9 +222,30 @@ DZNEmptyDataSetDelegate
                 [strongSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             }];
         };
+        self.audioStream.onStateChange = ^(FSAudioStreamState state) {
+            switch (state) {
+                case kFsAudioStreamPlaying:
+                {
+                    NSLog(@"a");
+                }
+                break;
+                case kFsAudioStreamPaused:
+                {
+                    NSLog(@"b");
+                }
+                break;
+                case kFsAudioStreamStopped:
+                {
+                    NSLog(@"c");
+                }
+                break;
+                default:
+                break;
+            };
+        };
         // 使用音频链接URL播放音频
         NSURL *url = [NSURL URLWithString:model.music_url];
-
+        [self.audioStream stop];
         [self.audioStream playFromURL:url];
         model.isPlaying = YES;
         self.playId = model.id;
@@ -230,6 +254,13 @@ DZNEmptyDataSetDelegate
         }];
     }
 
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    GODBackgroundViewController *backgroundViewController = [[GODBackgroundViewController alloc] init];
+//    backgroundViewController.model = self.musicList[indexPath.row];
+//    [self.navigationController pushViewController:backgroundViewController animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
