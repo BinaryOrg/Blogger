@@ -154,8 +154,11 @@ DZNEmptyDataSetDelegate
 
 - (void)configCell:(GODMusicTableViewCell *)cell withModel:(GODMusicModel *)model {
     [cell.playButton addTarget:self action:@selector(cellButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [cell.musicImageView yy_setImageWithURL:[NSURL URLWithString:model.thumb] options:YYWebImageOptionProgressiveBlur|YYWebImageOptionSetImageWithFadeAnimation];
+    NSURL *url = [NSURL URLWithString:model.thumb];
+    NSString *key = [[YYWebImageManager sharedManager] cacheKeyForURL:url];
+    UIImage *image = [[YYImageCache sharedCache] getImageForKey:key];
+//    [cell.musicImageView yy_setImageWithURL:url options:YYWebImageOptionProgressiveBlur|YYWebImageOptionSetImageWithFadeAnimation];
+    [cell.musicImageView yy_setImageWithURL:url placeholder:image?:[UIImage imageNamed:@"placeholder"] options:YYWebImageOptionProgressiveBlur|YYWebImageOptionSetImageWithFadeAnimation completion:nil];
     cell.titleLabel.text = model.title;
     cell.durationLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", model.music_duration/60, model.music_duration%60];
     if (model.isPlaying) {
