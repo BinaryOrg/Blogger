@@ -27,6 +27,12 @@
     [[GODSDKManager sharedInstance] launchInWindow:self.window];
     [[GODLaunchManager sharedInstance] launchInWindow:self.window];
     
+    
+    
+    
+    
+    
+    
 //    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
 //    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
 //    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
