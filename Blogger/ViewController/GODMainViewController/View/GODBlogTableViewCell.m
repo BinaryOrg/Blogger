@@ -7,7 +7,6 @@
 //
 
 #import "GODBlogTableViewCell.h"
-#import "GODDefine.h"
 #import "UIColor+CustomColors.h"
 @implementation GODBlogTableViewCell
 

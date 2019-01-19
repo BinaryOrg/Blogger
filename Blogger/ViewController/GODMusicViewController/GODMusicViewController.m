@@ -7,7 +7,6 @@
 //
 
 #import "GODMusicViewController.h"
-#import "GODDefine.h"
 #import "UIColor+CustomColors.h"
 #import <MFHUDManager/MFHUDManager.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>

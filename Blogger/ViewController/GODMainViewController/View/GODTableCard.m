@@ -7,7 +7,6 @@
 //
 
 #import "GODTableCard.h"
-#import "GODDefine.h"
 @implementation GODTableCard
 
 - (instancetype)initWithFrame:(CGRect)frame {

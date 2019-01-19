@@ -13,7 +13,6 @@
 #import <SafariServices/SafariServices.h>
 #import <MFHUDManager/MFHUDManager.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import "GODDefine.h"
 #import "GODBlogTableViewCell.h"
 #import "UIColor+CustomColors.h"
 #import "GODBlogModel.h"

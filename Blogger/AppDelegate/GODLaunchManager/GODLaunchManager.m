@@ -9,7 +9,6 @@
 #import "GODLaunchManager.h"
 #import <MFHUDManager.h>
 #import "UIColor+CustomColors.h"
-#import "GODDefine.h"
 
 #import "GODMainViewController.h"
 #import "GODMusicViewController.h"

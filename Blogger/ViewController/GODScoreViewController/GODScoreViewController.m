@@ -7,7 +7,6 @@
 //
 
 #import "GODScoreViewController.h"
-#import "GODDefine.h"
 #import "UIColor+CustomColors.h"
 
 @interface GODScoreViewController ()

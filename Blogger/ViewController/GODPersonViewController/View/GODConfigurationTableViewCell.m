@@ -7,7 +7,6 @@
 //
 
 #import "GODConfigurationTableViewCell.h"
-#import "GODDefine.h"
 @implementation GODConfigurationTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

@@ -7,7 +7,6 @@
 //
 
 #import "GODAvatarTableViewCell.h"
-#import "GODDefine.h"
 #import "UIColor+CustomColors.h"
 @implementation GODAvatarTableViewCell
 

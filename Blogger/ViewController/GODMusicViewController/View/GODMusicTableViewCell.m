@@ -7,7 +7,6 @@
 //
 
 #import "GODMusicTableViewCell.h"
-#import "GODDefine.h"
 #import "UIColor+CustomColors.h"
 @implementation GODMusicTableViewCell
 

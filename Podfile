@@ -18,4 +18,7 @@ pod 'DZNEmptyDataSet'
 pod 'FFPopup'
 pod 'FreeStreamer', '~> 3.8.2'
 pod 'MFExtractColor'
+pod 'Masonry'
+pod 'Texture'
+pod 'mob_smssdk'
 end

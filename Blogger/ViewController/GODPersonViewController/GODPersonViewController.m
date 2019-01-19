@@ -11,11 +11,13 @@
 #import <MFHUDManager.h>
 #import <StoreKit/StoreKit.h>
 #import <YYWebImage/YYWebImage.h>
-#import "GODDefine.h"
 #import "UIColor+CustomColors.h"
 #import "GODAvatarTableViewCell.h"
 #import "GODConfigurationTableViewCell.h"
 #import "GODScoreViewController.h"
+#import "GODPostController.h"
+#import "GODLoginTelephoneViewController.h"
+
 @interface GODPersonViewController ()
 <
 UITableViewDelegate,
@@ -37,6 +39,7 @@ UINavigationControllerDelegate
                       @"清除缓存",
                       @"用户评价",
                       @"联系作者",
+                      @"发布内容",
                       ];
     }
     return _textList;
@@ -114,6 +117,9 @@ UINavigationControllerDelegate
                 [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
             }
         });
+    }
+    if (indexPath.row == 3) {
+        [self presentViewController:[[GODLoginTelephoneViewController alloc] init] animated:YES completion:nil];
     }
     else {
         if ([MFHUDManager isShowing]) {

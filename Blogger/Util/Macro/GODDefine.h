@@ -39,4 +39,12 @@ fprintf(stderr, "-------\n");                                               \
 #define  StatusBarAndNavigationBarHeight   (StatusBarHeight + NavigationBarHeight)//(20.f + 44.f)
 
 #define color(r, g, b, a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define GODColor(r, g, b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
+
+
+/** 底部安全距离高度[适配PhoneX底部] */
+#define SafeAreaBottomHeight (Height >= 812.0 ? 34 : 0)
+/** 顶部安全距离高度[适配PhoneX底部] */
+#define SafeAreaTopHeight (Height >= 812.0 ? 24 : 0)
+
 #endif /* GODDefine_h */

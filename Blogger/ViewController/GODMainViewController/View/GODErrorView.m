@@ -7,7 +7,6 @@
 //
 
 #import "GODErrorView.h"
-#import "GODDefine.h"
 #import "UIColor+CustomColors.h"
 @implementation GODErrorView
 
