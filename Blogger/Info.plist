@@ -2,23 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>MOBAppKey</key>
-	<string>29d8998862f44</string>
-	<key>NSContactsUsageDescription</key>
-	<string>开启通讯录好友</string>
-	<key>MOBAppSecret</key>
-	<string>dab15e83311b6e53ee0a2c424ebf8d2a</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -42,8 +31,19 @@
 	<string>1.0.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MOBAppKey</key>
+	<string>29d8998862f44</string>
+	<key>MOBAppSecret</key>
+	<string>dab15e83311b6e53ee0a2c424ebf8d2a</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>请允许本应用使用相机权限</string>
+	<key>NSContactsUsageDescription</key>
+	<string>开启通讯录好友</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>请允许本应用存储相册权限</string>
 	<key>NSPhotoLibraryUsageDescription</key>

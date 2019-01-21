@@ -93,7 +93,10 @@ UINavigationControllerDelegate
     };
     //点击用户头像
     header.clickUserIcon = ^{
-        
+        UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        picker.delegate = self;
+        [self presentViewController:picker animated:YES completion:nil];
     };
     self.tableView.tableHeaderView = header;
 }
@@ -162,6 +165,18 @@ UINavigationControllerDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50;
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [self dismissViewControllerAnimated:YES completion:^{
+       //上传
+        
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
