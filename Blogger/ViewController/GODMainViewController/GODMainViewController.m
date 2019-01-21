@@ -125,9 +125,9 @@ DZNEmptyDataSetDelegate
 - (instancetype)init {
     self = [super init];
     if (self) {
-        UIImage *image = [UIImage imageNamed:@"iosAllNotes_24x24_"];
-        UIImage *selectedImage = [[UIImage imageNamed:@"iosAllNotesS_24x24_"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Blogger" image:image selectedImage:selectedImage];
+        UIImage *image = [UIImage imageNamed:@"tab_now_nor"];
+        UIImage *selectedImage = [[UIImage imageNamed:@"tab_now_press"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"看点" image:image selectedImage:selectedImage];
         [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];
     }
     return self;
@@ -136,7 +136,7 @@ DZNEmptyDataSetDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     MFNETWROK.delegate = self;
-    self.title = @"Blogger";
+    self.title = @"看点";
     self.view.backgroundColor = [UIColor whiteColor];
     self.shouldDisplay = YES;
     [self.view addSubview:self.tableView];

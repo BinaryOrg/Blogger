@@ -18,7 +18,8 @@
 #import "GODPostController.h"
 #import "GODLoginTelephoneViewController.h"
 #import "GODUserHeaderView.h"
-
+#import <QMUIKit.h>
+#import "GODSDKConfigKey.h"
 @interface GODPersonViewController ()
 <
 UITableViewDelegate,
@@ -30,6 +31,7 @@ UINavigationControllerDelegate
 @property (nonatomic ,strong) UITableView *tableView;
 @property (nonatomic ,strong) GODAvatarTableViewCell *avatarCell;
 @property (nonatomic ,strong) NSArray *textList;
+@property(nonatomic, strong) GODUserHeaderView *header;
 @end
 
 @implementation GODPersonViewController
@@ -63,9 +65,9 @@ UINavigationControllerDelegate
 - (instancetype)init {
     self = [super init];
     if (self) {
-        UIImage *image = [UIImage imageNamed:@"iosUser_24x24_"];
-        UIImage *selectedImage = [[UIImage imageNamed:@"iosUserS_24x24_"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"账户" image:image selectedImage:selectedImage];
+        UIImage *image = [UIImage imageNamed:@"tab_buddy_nor"];
+        UIImage *selectedImage = [[UIImage imageNamed:@"tab_buddy_press"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"设置" image:image selectedImage:selectedImage];
         [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];
     }
     return self;
@@ -73,32 +75,80 @@ UINavigationControllerDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"account";
+    self.title = @"设置";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     [self addHeaderView];
 }
 
 - (void)addHeaderView {
-    GODUserHeaderView *header = [[GODUserHeaderView alloc] init];
-    header.frame = CGRectMake(0, 0, Width, 120);
+    self.header = [[GODUserHeaderView alloc] init];
+    self.header.frame = CGRectMake(0, 0, Width, 120);
     __weak typeof(self)weakSelf = self;
     //点击登录
-    header.clickLogBtn = ^{
+    self.header.clickLogBtn = ^{
         GODLoginTelephoneViewController *vc = [[GODLoginTelephoneViewController alloc] init];
         [weakSelf presentViewController:vc animated:YES completion:nil];
         vc.didLoginSuccessBlock = ^{
             [weakSelf addHeaderView];
         };
     };
+    __weak __typeof(self.header)weakHeader = self.header;
+    self.header.clickUserName = ^{
+        __strong __typeof(weakHeader)strongHeader = weakHeader;
+        if (![QMUIAlertController isAnyAlertControllerVisible]) {
+            
+            QMUIAlertController *alert = [QMUIAlertController alertControllerWithTitle:nil message:@"请输入修改成的用户名" preferredStyle:QMUIAlertControllerStyleAlert];
+            [alert addTextFieldWithConfigurationHandler:^(QMUITextField *textField) {
+                textField.placeholder = @"请输入新用户名";
+//                textField.keyboardType = UIKeyboardTypeNumberPad;
+            }];
+            
+            QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"确定" style:QMUIAlertActionStyleDefault handler:^(__kindof QMUIAlertController *aAlertController, QMUIAlertAction *action) {
+                NSString *userName = aAlertController.textFields.firstObject.text;
+                if (!userName) {
+                    [MFHUDManager showError:[NSString stringWithFormat:@"请输入合法用户名"]];
+                    return;
+                }
+                
+                MFNETWROK.requestSerialization = MFJSONRequestSerialization;
+                [MFNETWROK post:@"user/username" params:@{
+                                                          @"phone":[GODUserTool shared].phone,
+                                                          @"username": userName
+                                                          } success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+                                                              NSLog(@"%@", result);
+                                                              if (![result[@"code"] integerValue]) {
+                                                                  GODUserModel *newUser = [GODUserModel yy_modelWithJSON:result[@"user"]];
+                                                                  [MFHUDManager showSuccess:@"修改成功!"];
+                                                                  [GODUserTool shared].user = newUser;
+                                                             [strongHeader.btn setTitle:userName forState:UIControlStateNormal];
+                                                              }else {
+                                                                  [MFHUDManager showError:@"修改失败~"];
+                                                                 
+                                                              }
+                                                          } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
+                                                              [MFHUDManager showError:@"修改失败~"];
+                                                          }];
+            }];
+            
+            
+            
+            QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleCancel handler:nil];
+            
+            [alert addAction:action1];
+            [alert addAction:action2];
+            [alert showWithAnimated:YES];
+        }
+    };
     //点击用户头像
-    header.clickUserIcon = ^{
+    self.header.clickUserIcon = ^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
         UIImagePickerController * picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-        picker.delegate = self;
-        [self presentViewController:picker animated:YES completion:nil];
+        picker.delegate = strongSelf;
+        [strongSelf presentViewController:picker animated:YES completion:nil];
     };
-    self.tableView.tableHeaderView = header;
+    self.tableView.tableHeaderView = self.header;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -175,7 +225,26 @@ UINavigationControllerDelegate
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     [self dismissViewControllerAnimated:YES completion:^{
        //上传
-        
+        [MFHUDManager showLoading:@"上传中..."];
+        NSString *phone = [GODUserTool shared].phone;
+        [MFNETWROK upload:[NSString stringWithFormat:@"user/avatar?phone=%@", phone] params:nil name:@"avatar" images:@[image] imageScale:0.8 imageType:MFImageTypePNG progress:^(NSProgress *progress) {
+            
+        } success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+            if (![result[@"code"] integerValue]) {
+                GODUserModel *newUser = [GODUserModel yy_modelWithJSON:result[@"user"]];
+                [MFHUDManager showSuccess:@"修改成功!"];
+                [GODUserTool shared].user = newUser;
+                NSLog(@"%@", result);
+                NSLog(@"%@", [NSString stringWithFormat:@"%@%@", BASE_URL, newUser.avatar]);
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_AVATAR_URL, newUser.avatar]];
+                [self.header.imgView yy_setImageWithURL:url placeholder:[UIImage imageNamed:@""]];
+            }else {
+                [MFHUDManager showError:@"修改失败~"];
+                
+            }
+        } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
+            NSLog(@"%@", error.userInfo);
+        }];
     }];
 }
 

@@ -22,9 +22,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        UIImage *image = [UIImage imageNamed:@"iosAllNotes_24x24_"];
-        UIImage *selectedImage = [[UIImage imageNamed:@"iosAllNotesS_24x24_"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"oppions" image:image selectedImage:selectedImage];
+        UIImage *image = [UIImage imageNamed:@"tab_qworld_nor"];
+        UIImage *selectedImage = [[UIImage imageNamed:@"tab_qworld_press"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"动态" image:image selectedImage:selectedImage];
         [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];
     }
     return self;
@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"oppinions";
+    self.title = @"动态";
     [self setupUI];
     
   
