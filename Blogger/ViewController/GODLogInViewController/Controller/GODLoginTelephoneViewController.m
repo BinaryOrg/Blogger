@@ -181,7 +181,7 @@
 
     
     NSString *phoneNum = self.telephoneTextField.text;
-    
+    MFNETWROK.requestSerialization = MFJSONRequestSerialization;;
     [MFNETWROK post:@"user/register" params:@{@"phone": phoneNum} success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
 
         GODUserModel *userModel = [GODUserModel yy_modelWithJSON:result[@"user"]];
@@ -201,7 +201,7 @@
 - (void)setupJumpFlow {
     [_timer invalidate];
     _timer = nil;
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 

@@ -13,6 +13,14 @@
 		37D4819421F3044400BB6B2A /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819321F3044400BB6B2A /* NSString+Regex.m */; };
 		37D4819B21F305BB00BB6B2A /* GODUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819A21F305BB00BB6B2A /* GODUserModel.m */; };
 		37D4819F21F3070400BB6B2A /* GODUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819D21F3070300BB6B2A /* GODUserTool.m */; };
+		37F50ADC21F4775400D6D152 /* GODDynamicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50ADB21F4775400D6D152 /* GODDynamicController.m */; };
+		37F50ADF21F4790500D6D152 /* GODDynamicCellNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50ADE21F4790500D6D152 /* GODDynamicCellNode.m */; };
+		37F50AE221F4794800D6D152 /* GODDynamicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AE121F4794800D6D152 /* GODDynamicModel.m */; };
+		37F50AE521F47BFA00D6D152 /* GODToolNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AE421F47BFA00D6D152 /* GODToolNode.m */; };
+		37F50AE821F47D0200D6D152 /* NSMutableDictionary+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AE621F47D0200D6D152 /* NSMutableDictionary+Attributes.m */; };
+		37F50AEB21F47E1000D6D152 /* ASButtonNode+LHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AEA21F47E1000D6D152 /* ASButtonNode+LHExtension.m */; };
+		37F50AEE21F47ED000D6D152 /* NSMutableAttributedString+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AEC21F47ED000D6D152 /* NSMutableAttributedString+Chain.m */; };
+		37F50AF121F4809F00D6D152 /* UIView+LH.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AEF21F4809F00D6D152 /* UIView+LH.m */; };
 		45AA16F5998E7D8D7CCDE87C /* libPods-Blogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7466A141CD059734410289F3 /* libPods-Blogger.a */; };
 		5E1DB25621EE06D7009A477C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB25521EE06D7009A477C /* AppDelegate.m */; };
 		5E1DB25E21EE06D7009A477C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E1DB25D21EE06D7009A477C /* Assets.xcassets */; };
@@ -55,6 +63,22 @@
 		37D4819A21F305BB00BB6B2A /* GODUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODUserModel.m; sourceTree = "<group>"; };
 		37D4819D21F3070300BB6B2A /* GODUserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODUserTool.m; sourceTree = "<group>"; };
 		37D4819E21F3070400BB6B2A /* GODUserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODUserTool.h; sourceTree = "<group>"; };
+		37F50ADA21F4775400D6D152 /* GODDynamicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicController.h; sourceTree = "<group>"; };
+		37F50ADB21F4775400D6D152 /* GODDynamicController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDynamicController.m; sourceTree = "<group>"; };
+		37F50ADD21F4790500D6D152 /* GODDynamicCellNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicCellNode.h; sourceTree = "<group>"; };
+		37F50ADE21F4790500D6D152 /* GODDynamicCellNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDynamicCellNode.m; sourceTree = "<group>"; };
+		37F50AE021F4794800D6D152 /* GODDynamicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicModel.h; sourceTree = "<group>"; };
+		37F50AE121F4794800D6D152 /* GODDynamicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDynamicModel.m; sourceTree = "<group>"; };
+		37F50AE321F47BFA00D6D152 /* GODToolNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODToolNode.h; sourceTree = "<group>"; };
+		37F50AE421F47BFA00D6D152 /* GODToolNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODToolNode.m; sourceTree = "<group>"; };
+		37F50AE621F47D0200D6D152 /* NSMutableDictionary+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Attributes.m"; sourceTree = "<group>"; };
+		37F50AE721F47D0200D6D152 /* NSMutableDictionary+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Attributes.h"; sourceTree = "<group>"; };
+		37F50AE921F47E1000D6D152 /* ASButtonNode+LHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASButtonNode+LHExtension.h"; sourceTree = "<group>"; };
+		37F50AEA21F47E1000D6D152 /* ASButtonNode+LHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASButtonNode+LHExtension.m"; sourceTree = "<group>"; };
+		37F50AEC21F47ED000D6D152 /* NSMutableAttributedString+Chain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Chain.m"; sourceTree = "<group>"; };
+		37F50AED21F47ED000D6D152 /* NSMutableAttributedString+Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Chain.h"; sourceTree = "<group>"; };
+		37F50AEF21F4809F00D6D152 /* UIView+LH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LH.m"; sourceTree = "<group>"; };
+		37F50AF021F4809F00D6D152 /* UIView+LH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LH.h"; sourceTree = "<group>"; };
 		4D5456069D2FA8C2505885F7 /* Pods-Blogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blogger/Pods-Blogger.debug.xcconfig"; sourceTree = "<group>"; };
 		5E1DB25121EE06D7009A477C /* Blogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E1DB25421EE06D7009A477C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -223,6 +247,8 @@
 		37E7740621F358FA0026E158 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				37F50ADA21F4775400D6D152 /* GODDynamicController.h */,
+				37F50ADB21F4775400D6D152 /* GODDynamicController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,6 +256,8 @@
 		37E7740721F358FA0026E158 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				37F50AE021F4794800D6D152 /* GODDynamicModel.h */,
+				37F50AE121F4794800D6D152 /* GODDynamicModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,6 +265,10 @@
 		37E7740821F358FA0026E158 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				37F50ADD21F4790500D6D152 /* GODDynamicCellNode.h */,
+				37F50ADE21F4790500D6D152 /* GODDynamicCellNode.m */,
+				37F50AE321F47BFA00D6D152 /* GODToolNode.h */,
+				37F50AE421F47BFA00D6D152 /* GODToolNode.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,6 +368,14 @@
 		5E1DB27721EE17C3009A477C /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				37F50AF021F4809F00D6D152 /* UIView+LH.h */,
+				37F50AEF21F4809F00D6D152 /* UIView+LH.m */,
+				37F50AED21F47ED000D6D152 /* NSMutableAttributedString+Chain.h */,
+				37F50AEC21F47ED000D6D152 /* NSMutableAttributedString+Chain.m */,
+				37F50AE921F47E1000D6D152 /* ASButtonNode+LHExtension.h */,
+				37F50AEA21F47E1000D6D152 /* ASButtonNode+LHExtension.m */,
+				37F50AE721F47D0200D6D152 /* NSMutableDictionary+Attributes.h */,
+				37F50AE621F47D0200D6D152 /* NSMutableDictionary+Attributes.m */,
 				37D4819221F3044300BB6B2A /* NSString+Regex.h */,
 				37D4819321F3044400BB6B2A /* NSString+Regex.m */,
 				5E1DB27821EE17EF009A477C /* UIColor+CustomColors.h */,
@@ -606,31 +646,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F50ADF21F4790500D6D152 /* GODDynamicCellNode.m in Sources */,
 				5E1DB28821EE1B42009A477C /* GODCard.m in Sources */,
 				37D4818621F2F10300BB6B2A /* GODPostController.m in Sources */,
 				5E1DB27A21EE17EF009A477C /* UIColor+CustomColors.m in Sources */,
 				5E1DB2B821EF828C009A477C /* GODMusicTableViewCell.m in Sources */,
 				37D4819121F3039000BB6B2A /* GODLoginTelephoneViewController.m in Sources */,
+				37F50AE521F47BFA00D6D152 /* GODToolNode.m in Sources */,
 				5E1DB28E21EE1C06009A477C /* GODBlogTableViewCell.m in Sources */,
 				5E1DB29921EE25F7009A477C /* NSObject+YYModel.m in Sources */,
+				37F50AEB21F47E1000D6D152 /* ASButtonNode+LHExtension.m in Sources */,
+				37F50AF121F4809F00D6D152 /* UIView+LH.m in Sources */,
 				5E1DB29221EE237D009A477C /* GODBlogModel.m in Sources */,
 				5E1DB27621EE1797009A477C /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				37F50AE821F47D0200D6D152 /* NSMutableDictionary+Attributes.m in Sources */,
 				5E1DB2B521EF81B9009A477C /* GODMusicModel.m in Sources */,
 				5E1DB26F21EE15E0009A477C /* GODLaunchManager.m in Sources */,
 				5E1DB2B021EF7D96009A477C /* GODMusicViewController.m in Sources */,
 				37D4819F21F3070400BB6B2A /* GODUserTool.m in Sources */,
 				37D4818921F2F11900BB6B2A /* GODTextView.m in Sources */,
 				5E1DB26421EE06D7009A477C /* main.m in Sources */,
+				37F50AE221F4794800D6D152 /* GODDynamicModel.m in Sources */,
 				37D4819B21F305BB00BB6B2A /* GODUserModel.m in Sources */,
 				5E1DB28B21EE1BC8009A477C /* GODTableCard.m in Sources */,
 				5E1DB29A21EE25F7009A477C /* YYClassInfo.m in Sources */,
 				5E1DB2A221EED227009A477C /* GODAvatarTableViewCell.m in Sources */,
 				37D4819421F3044400BB6B2A /* NSString+Regex.m in Sources */,
+				37F50ADC21F4775400D6D152 /* GODDynamicController.m in Sources */,
 				5E1DB29E21EED13B009A477C /* GODPersonViewController.m in Sources */,
 				5E1DB25621EE06D7009A477C /* AppDelegate.m in Sources */,
 				5E1DB28421EE1ABD009A477C /* GODMainViewController.m in Sources */,
 				5E1DB27D21EE18D8009A477C /* GODSDKManager.m in Sources */,
 				5E1DB2A521EED50D009A477C /* GODConfigurationTableViewCell.m in Sources */,
+				37F50AEE21F47ED000D6D152 /* NSMutableAttributedString+Chain.m in Sources */,
 				5E1DB2AC21EEFE42009A477C /* GODScoreViewController.m in Sources */,
 				5E1DB2A821EEE35E009A477C /* GODErrorView.m in Sources */,
 				5E4E0D1821F05824009833BF /* GODBackgroundViewController.m in Sources */,

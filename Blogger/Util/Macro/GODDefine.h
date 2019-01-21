@@ -47,4 +47,10 @@ fprintf(stderr, "-------\n");                                               \
 /** 顶部安全距离高度[适配PhoneX底部] */
 #define SafeAreaTopHeight (Height >= 812.0 ? 24 : 0)
 
+
+
+// 安全执行Block
+#define SAFE_BLOCK(BlockName, ...) ({ !BlockName ? nil : BlockName(__VA_ARGS__); })
+
+
 #endif /* GODDefine_h */

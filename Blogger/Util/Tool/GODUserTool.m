@@ -38,7 +38,7 @@ static GODUserTool *userTool = nil;
 
 /// 是否登陆
 + (BOOL)isLogin {
-    return [GODUserTool shared].user.userId.length ? YES : NO;
+    return [GODUserTool shared].user.id.length ? YES : NO;
 }
 
 /// 清除用户信息
