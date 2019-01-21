@@ -18,7 +18,7 @@
 @property (nonatomic, strong) ASButtonNode *commentNode;
 @property (nonatomic, strong) ASNetworkImageNode *iconNode;
 @property (nonatomic, strong) ASTextNode *titleNode;
-
+@property (nonatomic, strong) GODDynamicModel *model;
 @end
 
 @implementation GODToolNode
@@ -28,6 +28,7 @@
     if (!self) {
         return nil;
     }
+    self.model = model;
     void(^attributes)(NSMutableDictionary *make) = ^(NSMutableDictionary *make) {
         make.lh_font([UIFont systemFontOfSize:12.0f]).lh_color([UIColor colorWithHexString:@"354048"]);
     };
@@ -83,7 +84,11 @@
 }
 
 - (void)onTouchThumbNode:(ASButtonNode *)node {
-    
+    if (self.model.isFavor) {
+        return;
+    }
+    self.model.isFavor = !self.model.isFavor;
+    self.thumbNode.selected = self.model.isFavor;
     SAFE_BLOCK(self.didClickThumbNodeBlock);
 }
 
