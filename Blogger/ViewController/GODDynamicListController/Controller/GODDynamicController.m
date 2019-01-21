@@ -19,8 +19,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.title = @"oppinions";
     [self setupUI];
+    
+    GODUserModel *user = [[GODUserModel alloc] init];
+    user.username = @"测试";
+    user.avatar = @"http://a3.att.hudong.com/58/63/01300542846491148697637760361.jpg";
+    user.phone = @"199999999";
+    
+    GODDynamicModel *model = [[GODDynamicModel alloc] init];
+    model.isFavor = YES;
+    model.favorTotal = 200000;
+    model.releaseuser = user;
+    model.content = @"家时空裂缝假按揭佛我进去偶家卧佛寺 安徽省飞机返回去维护佛七哈佛千万按时发生开发好看是否";
+    
+    [self.dataList addObject:model];
+    [self.tableNode reloadData];
+//    [self loadData:NO];
+
 }
 - (void)setupUI {
     
@@ -30,11 +46,10 @@
     
     [self.view addSubview:self.tableNode.view];
     [self.tableNode.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
+        make.left.bottom.right.mas_equalTo(0);
+        make.top.mas_equalTo(NavigationBarHeight);
     }];
     
-    [self loadData:NO];
 }
 
 - (void)tableViewDidTriggerHeaderRefresh {
@@ -50,6 +65,8 @@
     [MFHUDManager showLoading:@"加载中"];
     [MFNETWROK post:@"user/comments" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
         [MFHUDManager dismiss];
+        [self.tableNode.view.mj_header endRefreshing];
+        [self.tableNode.view.mj_footer endRefreshing];
         NSArray <GODDynamicModel *>*modelArray = [NSArray yy_modelArrayWithClass:GODDynamicModel.class json:result];
         if (!isAdd) {
             [self.dataList removeAllObjects];
@@ -57,6 +74,8 @@
         [self.dataList addObjectsFromArray:modelArray];
         [self.tableNode reloadData];
     } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
+        [self.tableNode.view.mj_header endRefreshing];
+        [self.tableNode.view.mj_footer endRefreshing];
         [MFHUDManager dismiss];
         [MFHUDManager showError:@"登录失败"];
     }];
@@ -68,6 +87,7 @@
     
     
 }
+
 #pragma mark - tableViewDataSourceAndDelegate
 - (NSInteger)tableNode:(ASTableNode *)tableNode numberOfRowsInSection:(NSInteger)section {
     return self.dataList.count;

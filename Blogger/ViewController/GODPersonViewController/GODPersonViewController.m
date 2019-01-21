@@ -17,7 +17,6 @@
 #import "GODScoreViewController.h"
 #import "GODPostController.h"
 #import "GODLoginTelephoneViewController.h"
-#import "GODDynamicController.h"
 
 @interface GODPersonViewController ()
 <
@@ -120,7 +119,7 @@ UINavigationControllerDelegate
         });
     }
     if (indexPath.row == 3) {
-        [self presentViewController:[[GODDynamicController alloc] init] animated:YES completion:nil];
+        [self presentViewController:[[GODLoginTelephoneViewController alloc] init] animated:YES completion:nil];
     }
     else {
         if ([MFHUDManager isShowing]) {

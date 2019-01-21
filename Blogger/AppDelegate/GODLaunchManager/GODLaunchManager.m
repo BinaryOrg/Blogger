@@ -13,6 +13,7 @@
 #import "GODMainViewController.h"
 #import "GODMusicViewController.h"
 #import "GODPersonViewController.h"
+#import "GODDynamicController.h"
 @implementation GODLaunchManager
 + (instancetype)sharedInstance {
     static GODLaunchManager *manager = nil;
@@ -33,13 +34,17 @@
     GODMainViewController *main = [[GODMainViewController alloc] init];
     GODMusicViewController *music = [[GODMusicViewController alloc] init];
     GODPersonViewController *person = [[GODPersonViewController alloc] init];
+    GODDynamicController *dynamic = [[GODDynamicController alloc] init];
     UINavigationController *mainNavi = [[UINavigationController alloc] initWithRootViewController:main];
     UINavigationController *personNavi = [[UINavigationController alloc] initWithRootViewController:person];
     UINavigationController *musicNavi = [[UINavigationController alloc] initWithRootViewController:music];
+    UINavigationController *dynamicNavi = [[UINavigationController alloc] initWithRootViewController:dynamic];
+
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[
                                          mainNavi,
                                          musicNavi,
+                                         dynamicNavi,
                                          personNavi
                                          ];
     window.rootViewController = tabBarController;

@@ -55,8 +55,9 @@
         [self addSubnode:_contentNode];
         
         _lineNode = [ASDisplayNode new];
-        _lineNode.backgroundColor = [UIColor colorWithHexString:@"EDEDED"];
+        _lineNode.backgroundColor = GODColor(238, 238, 238);
         [_lineNode setLayerBacked:YES];
+        _lineNode.style.preferredSize = CGSizeMake(Width - 40, 1.0f);
         [self addSubnode:_lineNode];
     }
     return self;
