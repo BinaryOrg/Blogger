@@ -33,8 +33,8 @@
         make.lh_font([UIFont systemFontOfSize:12.0f]).lh_color([UIColor colorWithHexString:@"354048"]);
     };
     
-    NSString *thubCount = [NSString stringWithFormat:@"%zd", model.favorTotal];
-    if (model.favorTotal == 0) {
+    NSString *thubCount = [NSString stringWithFormat:@"%zd", model.like_count];
+    if (model.like_count == 0) {
         thubCount = @"";
     }
     _thumbNode = [[ASButtonNode alloc] init];
@@ -43,7 +43,7 @@
     [_thumbNode setImage:[UIImage imageNamed:@"bnt_zan"] forState:UIControlStateNormal];
     [_thumbNode setImage:[UIImage imageNamed:@"bnt_zan_pre"] forState:UIControlStateSelected];
     [_thumbNode addTarget:self action:@selector(onTouchThumbNode:) forControlEvents:ASControlNodeEventTouchUpInside];
-    _thumbNode.selected = model.isFavor;
+    _thumbNode.selected = model.is_like;
     
     NSString *commentCount = [NSString stringWithFormat:@"%d", 0];
 //    if (model.commentTotal == 0) {
@@ -56,7 +56,7 @@
     [_commentNode addTarget:self action:@selector(onTouchCommentNode:) forControlEvents:ASControlNodeEventTouchUpInside];
     
     _titleNode = [ASTextNode new];
-    _titleNode.attributedText = [NSMutableAttributedString lh_makeAttributedString:model.releaseuser.username attributes:^(NSMutableDictionary *make) {
+    _titleNode.attributedText = [NSMutableAttributedString lh_makeAttributedString:model.user.username attributes:^(NSMutableDictionary *make) {
         make.lh_font([UIFont systemFontOfSize:12.0f]).lh_color([UIColor colorWithHexString:@"354048"]);
     }];
     
@@ -71,7 +71,7 @@
     _iconNode = [[ASNetworkImageNode alloc] init];
     _iconNode.cornerRadius = 12;
 //    _iconNode.defaultImage = LHPlaceholderCoverImage01;
-    _iconNode.URL = [NSURL URLWithString:model.releaseuser.avatar];
+    _iconNode.URL = [NSURL URLWithString:model.user.avatar.length ? model.user.avatar : @"http://a3.att.hudong.com/58/63/01300542846491148697637760361.jpg"];
     _iconNode.style.preferredSize = CGSizeMake(24, 24);
     [_iconNode addTarget:self action:@selector(onTouchCoterieNode) forControlEvents:ASControlNodeEventTouchUpInside];
     
@@ -84,11 +84,11 @@
 }
 
 - (void)onTouchThumbNode:(ASButtonNode *)node {
-    if (self.model.isFavor) {
+    if (self.model.is_like) {
         return;
     }
-    self.model.isFavor = !self.model.isFavor;
-    self.thumbNode.selected = self.model.isFavor;
+    self.model.is_like = !self.model.is_like;
+    self.thumbNode.selected = self.model.is_like;
     SAFE_BLOCK(self.didClickThumbNodeBlock);
 }
 

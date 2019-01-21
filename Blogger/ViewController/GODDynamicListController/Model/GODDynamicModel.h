@@ -11,11 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GODDynamicModel : NSObject
-
-@property (nonatomic, assign) BOOL isFavor;
-@property (nonatomic, assign) NSInteger favorTotal;
-@property (nonatomic, strong) NSString *content;
-@property (nonatomic, strong) GODUserModel *releaseuser;
+@property (nonatomic, strong) NSString *date;
+@property (nonatomic, assign) BOOL is_like;
+@property (nonatomic, assign) NSInteger like_count;
+@property (nonatomic, strong) NSString *summary;
+@property (nonatomic, strong) GODUserModel *user;
+@property (nonatomic, assign) NSInteger id;
 @end
 
 NS_ASSUME_NONNULL_END

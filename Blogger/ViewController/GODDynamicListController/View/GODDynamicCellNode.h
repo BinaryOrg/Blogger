@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic, weak) id <GODDynamicCellNodeDelegate> delegate;
-
+/** <#class#> */
+@property (nonatomic, strong) GODDynamicModel *model;
 - (instancetype)initWithModel:(GODDynamicModel *)model;
 
 @end

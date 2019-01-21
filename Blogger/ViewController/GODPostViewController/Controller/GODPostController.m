@@ -83,7 +83,20 @@
     if (self.textView.text.length == 0) {
         [MFHUDManager showWarning:@"请输入内容"];
     }else {
-        
+        [MFHUDManager showLoading:@"发布中"];
+        MFNETWROK.requestSerialization = MFJSONRequestSerialization;
+        [MFNETWROK post:@"user/comment" params:@{@"content" : self.textView.text, @"phone" : [GODUserTool shared].phone.length ? [GODUserTool shared].phone : @""} success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+            [MFHUDManager dismiss];
+            if (statusCode == 0) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }else {
+                [MFHUDManager showError:@"发布失败"];
+            }
+        } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
+            
+            [MFHUDManager dismiss];
+            [MFHUDManager showError:@"发布失败"];
+        }];
     }
 }
 
