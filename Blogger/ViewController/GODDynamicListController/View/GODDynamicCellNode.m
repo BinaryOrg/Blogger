@@ -25,7 +25,7 @@
     if (self) {
         __weak typeof(self)weakSelf = self;
         
-        
+        self.model = model;
         self.coterieToolNode = [[GODToolNode alloc] initWithModel:model];
         self.coterieToolNode.didClickThumbNodeBlock = ^{
             if ([weakSelf.delegate respondsToSelector:@selector(clickEnjoyWithNode:)]) {
@@ -41,7 +41,7 @@
         [self addSubnode:self.coterieToolNode];
         
         
-        NSMutableAttributedString *text = [NSMutableAttributedString lh_makeAttributedString:model.content attributes:^(NSMutableDictionary *make) {
+        NSMutableAttributedString *text = [NSMutableAttributedString lh_makeAttributedString:model.summary attributes:^(NSMutableDictionary *make) {
             make.lh_font([UIFont systemFontOfSize:15.0]).lh_color([UIColor colorWithHexString:@"354048"]);
         }];
         _contentNode = [ASTextNode new];

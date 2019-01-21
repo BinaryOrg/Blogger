@@ -140,7 +140,11 @@ UINavigationControllerDelegate
         });
     }
     if (indexPath.row == 3) {
-        [self presentViewController:[[GODPostController alloc] init] animated:YES completion:nil];
+        if ([GODUserTool shared].user.id.length == 0) {//没有登录
+            [self presentViewController:[[GODLoginTelephoneViewController alloc] init] animated:YES completion:nil];
+        }else {
+            [self presentViewController:[[GODPostController alloc] init] animated:YES completion:nil];
+        }
     }
     else {
         [[GODUserTool shared] clearUserInfo];

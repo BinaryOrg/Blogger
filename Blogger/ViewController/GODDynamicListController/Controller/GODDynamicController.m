@@ -9,6 +9,8 @@
 #import "GODDynamicController.h"
 #import <MJRefresh.h>
 #import "GODDynamicCellNode.h"
+#import "GODPostController.h"
+#import "GODLoginTelephoneViewController.h"
 
 @interface GODDynamicController ()<ASTableDelegate, ASTableDataSource, GODDynamicCellNodeDelegate>
 @property (nonatomic, strong) ASTableNode *tableNode;
@@ -33,20 +35,8 @@
     self.title = @"oppinions";
     [self setupUI];
     
-    GODUserModel *user = [[GODUserModel alloc] init];
-    user.username = @"测试";
-    user.avatar = @"http://a3.att.hudong.com/58/63/01300542846491148697637760361.jpg";
-    user.phone = @"199999999";
-    
-    GODDynamicModel *model = [[GODDynamicModel alloc] init];
-    model.isFavor = YES;
-    model.favorTotal = 200000;
-    model.releaseuser = user;
-    model.content = @"家时空裂缝假按揭佛我进去偶家卧佛寺 安徽省飞机返回去维护佛七哈佛千万按时发生开发好看是否";
-    
-    [self.dataList addObject:model];
-    [self.tableNode reloadData];
-//    [self loadData:NO];
+  
+    [self loadData:NO];
 
 }
 - (void)setupUI {
@@ -75,11 +65,12 @@
 
 - (void)loadData:(BOOL)isAdd {
     [MFHUDManager showLoading:@"加载中"];
-    [MFNETWROK get:@"user/comments" params:@{@"index" : [NSString stringWithFormat:@"%ld", (self.dataList.count / 10) + 1]} success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+    NSString *url = [NSString stringWithFormat:@"user/comments?phone=%@&&index=%lu", [GODUserTool shared].phone.length ? [GODUserTool shared].phone : @"", (self.dataList.count / 10)];
+    [MFNETWROK get:url params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
         [MFHUDManager dismiss];
         [self.tableNode.view.mj_header endRefreshing];
         [self.tableNode.view.mj_footer endRefreshing];
-        NSArray <GODDynamicModel *>*modelArray = [NSArray yy_modelArrayWithClass:GODDynamicModel.class json:result];
+        NSArray <GODDynamicModel *>*modelArray = [NSArray yy_modelArrayWithClass:GODDynamicModel.class json:result[@"commentDtos"]];
         if (!isAdd) {
             [self.dataList removeAllObjects];
         }
@@ -95,9 +86,17 @@
 
 //点赞
 - (void)clickEnjoyWithNode:(GODDynamicCellNode *)cellNode {
-    
-    
-    
+    if ([GODUserTool shared].user.id.length == 0) {//没有登录
+        [self presentViewController:[[GODLoginTelephoneViewController alloc] init] animated:YES completion:nil];
+    }else {
+        MFNETWROK.requestSerialization = MFJSONRequestSerialization;
+        [MFNETWROK post:@"user/like" params:@{@"comment_id" : @(cellNode.model.id), @"phone" : [GODUserTool shared].phone.length ? [GODUserTool shared].phone : @""} success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+            [MFHUDManager dismiss];
+           
+        } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
+            
+        }];
+    }
 }
 
 #pragma mark - tableViewDataSourceAndDelegate
