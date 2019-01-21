@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37C0A08821F5C414000683B8 /* GODUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0A08721F5C414000683B8 /* GODUserHeaderView.m */; };
 		37D4818621F2F10300BB6B2A /* GODPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4818521F2F10300BB6B2A /* GODPostController.m */; };
 		37D4818921F2F11900BB6B2A /* GODTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4818721F2F11900BB6B2A /* GODTextView.m */; };
 		37D4819121F3039000BB6B2A /* GODLoginTelephoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819021F3039000BB6B2A /* GODLoginTelephoneViewController.m */; };
@@ -50,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		2D417275E62C96934989F346 /* Pods-Blogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blogger/Pods-Blogger.release.xcconfig"; sourceTree = "<group>"; };
+		37C0A08621F5C414000683B8 /* GODUserHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODUserHeaderView.h; sourceTree = "<group>"; };
+		37C0A08721F5C414000683B8 /* GODUserHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODUserHeaderView.m; sourceTree = "<group>"; };
 		37D4818421F2F10200BB6B2A /* GODPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODPostController.h; sourceTree = "<group>"; };
 		37D4818521F2F10300BB6B2A /* GODPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODPostController.m; sourceTree = "<group>"; };
 		37D4818721F2F11900BB6B2A /* GODTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODTextView.m; sourceTree = "<group>"; };
@@ -463,6 +466,8 @@
 				5E1DB2A121EED227009A477C /* GODAvatarTableViewCell.m */,
 				5E1DB2A321EED50D009A477C /* GODConfigurationTableViewCell.h */,
 				5E1DB2A421EED50D009A477C /* GODConfigurationTableViewCell.m */,
+				37C0A08621F5C414000683B8 /* GODUserHeaderView.h */,
+				37C0A08721F5C414000683B8 /* GODUserHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 			files = (
 				37F50ADF21F4790500D6D152 /* GODDynamicCellNode.m in Sources */,
 				5E1DB28821EE1B42009A477C /* GODCard.m in Sources */,
+				37C0A08821F5C414000683B8 /* GODUserHeaderView.m in Sources */,
 				37D4818621F2F10300BB6B2A /* GODPostController.m in Sources */,
 				5E1DB27A21EE17EF009A477C /* UIColor+CustomColors.m in Sources */,
 				5E1DB2B821EF828C009A477C /* GODMusicTableViewCell.m in Sources */,

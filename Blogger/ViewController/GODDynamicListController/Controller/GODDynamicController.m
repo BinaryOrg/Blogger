@@ -17,6 +17,17 @@
 
 @implementation GODDynamicController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        UIImage *image = [UIImage imageNamed:@"iosAllNotes_24x24_"];
+        UIImage *selectedImage = [[UIImage imageNamed:@"iosAllNotesS_24x24_"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"oppions" image:image selectedImage:selectedImage];
+        [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"oppinions";
@@ -46,8 +57,9 @@
     
     [self.view addSubview:self.tableNode.view];
     [self.tableNode.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.mas_equalTo(0);
+        make.left.right.mas_equalTo(0);
         make.top.mas_equalTo(NavigationBarHeight);
+        make.bottom.mas_equalTo(-SafeAreaBottomHeight);
     }];
     
 }

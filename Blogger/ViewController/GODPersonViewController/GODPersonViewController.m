@@ -17,6 +17,7 @@
 #import "GODScoreViewController.h"
 #import "GODPostController.h"
 #import "GODLoginTelephoneViewController.h"
+#import "GODUserHeaderView.h"
 
 @interface GODPersonViewController ()
 <
@@ -72,9 +73,24 @@ UINavigationControllerDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"账户";
+    self.title = @"account";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
+    [self addHeaderView];
+}
+
+- (void)addHeaderView {
+    GODUserHeaderView *header = [[GODUserHeaderView alloc] init];
+    header.frame = CGRectMake(0, 0, Width, 120);
+    __weak typeof(self)weakSelf = self;
+    header.clickLogBtn = ^{
+        GODLoginTelephoneViewController *vc = [[GODLoginTelephoneViewController alloc] init];
+        [weakSelf presentViewController:vc animated:YES completion:nil];
+        vc.didLoginSuccessBlock = ^{
+            [weakSelf addHeaderView];
+        };
+    };
+    self.tableView.tableHeaderView = header;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -119,9 +135,11 @@ UINavigationControllerDelegate
         });
     }
     if (indexPath.row == 3) {
-        [self presentViewController:[[GODLoginTelephoneViewController alloc] init] animated:YES completion:nil];
+        [self presentViewController:[[GODPostController alloc] init] animated:YES completion:nil];
     }
     else {
+        [[GODUserTool shared] clearUserInfo];
+        [self addHeaderView];
         if ([MFHUDManager isShowing]) {
             return;
         }else {
