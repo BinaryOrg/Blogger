@@ -83,12 +83,17 @@ UINavigationControllerDelegate
     GODUserHeaderView *header = [[GODUserHeaderView alloc] init];
     header.frame = CGRectMake(0, 0, Width, 120);
     __weak typeof(self)weakSelf = self;
+    //点击登录
     header.clickLogBtn = ^{
         GODLoginTelephoneViewController *vc = [[GODLoginTelephoneViewController alloc] init];
         [weakSelf presentViewController:vc animated:YES completion:nil];
         vc.didLoginSuccessBlock = ^{
             [weakSelf addHeaderView];
         };
+    };
+    //点击用户头像
+    header.clickUserIcon = ^{
+        
     };
     self.tableView.tableHeaderView = header;
 }

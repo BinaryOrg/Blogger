@@ -75,7 +75,7 @@
 
 - (void)loadData:(BOOL)isAdd {
     [MFHUDManager showLoading:@"加载中"];
-    [MFNETWROK post:@"user/comments" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+    [MFNETWROK get:@"user/comments" params:@{@"index" : [NSString stringWithFormat:@"%ld", (self.dataList.count / 10) + 1]} success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
         [MFHUDManager dismiss];
         [self.tableNode.view.mj_header endRefreshing];
         [self.tableNode.view.mj_footer endRefreshing];

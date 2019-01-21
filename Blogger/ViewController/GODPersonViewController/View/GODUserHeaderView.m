@@ -60,6 +60,15 @@
     }
 }
 
+- (void)clickAvatar {
+    GODUserModel *user = [GODUserTool shared].user;
+    if (user) {
+        if (self.clickUserIcon) {
+            self.clickUserIcon();
+        }
+    }
+}
+
 - (UIImageView *)imgView {
     if (!_imgView) {
         _imgView = [[UIImageView alloc] init];
@@ -67,6 +76,8 @@
         _imgView.layer.masksToBounds = YES;
         _imgView.layer.cornerRadius = 30;
         _imgView.image = [UIImage imageNamed:@"iosUser_24x24_"];
+        _imgView.userInteractionEnabled = YES;
+        [_imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickAvatar)]];
     }
     return _imgView;
 }
