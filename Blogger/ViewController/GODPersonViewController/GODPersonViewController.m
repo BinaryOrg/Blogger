@@ -192,9 +192,13 @@ UINavigationControllerDelegate
             }
         });
     }
-    if (indexPath.row == 3) {
+    else if (indexPath.row == 3) {
         if ([GODUserTool shared].user.id.length == 0) {//没有登录
-            [self presentViewController:[[GODLoginTelephoneViewController alloc] init] animated:YES completion:nil];
+            GODLoginTelephoneViewController *vc = [[GODLoginTelephoneViewController alloc] init];
+            vc.didLoginSuccessBlock = ^{
+                [self addHeaderView];
+            };
+            [self presentViewController:vc animated:YES completion:nil];
         }else {
             [self presentViewController:[[GODPostController alloc] init] animated:YES completion:nil];
         }
