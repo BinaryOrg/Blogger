@@ -87,7 +87,16 @@
     if (self.model.is_like) {
         return;
     }
+    void(^attributes)(NSMutableDictionary *make) = ^(NSMutableDictionary *make) {
+        make.lh_font([UIFont systemFontOfSize:12.0f]).lh_color([UIColor colorWithHexString:@"354048"]);
+    };
     self.model.is_like = !self.model.is_like;
+    self.model.like_count += 1;
+    NSString *thubCount = [NSString stringWithFormat:@"%zd", self.model.like_count];
+    if (self.model.like_count == 0) {
+        thubCount = @"";
+    }
+    [self.thumbNode setAttributedTitle:[NSMutableAttributedString lh_makeAttributedString:thubCount attributes:attributes] forState:UIControlStateNormal];
     self.thumbNode.selected = self.model.is_like;
     SAFE_BLOCK(self.didClickThumbNodeBlock);
 }

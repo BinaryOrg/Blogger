@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
+	<key>CFBundleDisplayName</key>
+	<string>简·意</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MOBAppKey</key>
@@ -41,13 +43,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>请允许本应用使用相机权限</string>
+	<string>请允许本应用使用相机权限用以上传用户头像</string>
 	<key>NSContactsUsageDescription</key>
-	<string>开启通讯录好友</string>
+	<string>开启通讯录好友发送短信</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>请允许本应用存储相册权限</string>
+	<string>请允许本应用存储相册权限用以存储图片</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>请允许本应用存储相册权限</string>
+	<string>请允许本应用存储相册权限用以存储图片</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

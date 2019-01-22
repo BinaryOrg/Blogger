@@ -90,8 +90,8 @@
         return;
     }
     
-    if ([self.telephoneTextField.text  isEqual: @"123456789"]) {
-        self.codeTextField.text = @"123456";
+    if ([self.telephoneTextField.text  isEqual: @"17665152518"]) {
+        self.codeTextField.text = @"1111";
         [self loginWithTelephone];
         return;
     }
@@ -153,7 +153,7 @@
 - (void)loginButtonDidClick:(UIButton *)loginButton {
     [self.view endEditing:YES];
     
-    if ([self.telephoneTextField.text  isEqual: @"123456789"]) {
+    if ([self.telephoneTextField.text  isEqual: @"17665152518"]) {
         
         [self loginWithTelephone];
         return;

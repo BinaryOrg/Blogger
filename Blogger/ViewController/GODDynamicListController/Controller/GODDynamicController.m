@@ -65,7 +65,15 @@
 
 - (void)loadData:(BOOL)isAdd {
     [MFHUDManager showLoading:@"加载中"];
-    NSString *url = [NSString stringWithFormat:@"user/comments?phone=%@&&index=%lu", [GODUserTool shared].phone.length ? [GODUserTool shared].phone : @"", isAdd ? (self.dataList.count / 10) : 0];
+    NSInteger index = 0;
+    if (isAdd) {
+        if (self.dataList.count % 10 > 0) {
+            index = (self.dataList.count / 10) + 1;
+        }else {
+            index = self.dataList.count / 10;
+        }
+    }
+    NSString *url = [NSString stringWithFormat:@"user/comments?phone=%@&&index=%lu", [GODUserTool shared].phone.length ? [GODUserTool shared].phone : @"", index];
     [MFNETWROK get:url params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
         [MFHUDManager dismiss];
         [self.tableNode.view.mj_header endRefreshing];
