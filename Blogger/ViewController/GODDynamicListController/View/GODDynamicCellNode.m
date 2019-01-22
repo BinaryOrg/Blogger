@@ -53,7 +53,7 @@
         _contentNode.attributedText = text;
         _contentNode.style.maxWidth = ASDimensionMakeWithPoints(Width - 40);
         [self addSubnode:_contentNode];
-        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         _lineNode = [ASDisplayNode new];
         _lineNode.backgroundColor = GODColor(238, 238, 238);
         [_lineNode setLayerBacked:YES];
