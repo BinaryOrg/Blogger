@@ -11,14 +11,77 @@
 #import "GODDynamicCellNode.h"
 #import "GODPostController.h"
 #import "GODLoginTelephoneViewController.h"
-#import <QMUIKit.h>
+#import <QMUIKit/QMUIKit.h>
 
-@interface GODDynamicController ()<ASTableDelegate, ASTableDataSource, GODDynamicCellNodeDelegate>
+@interface QDPopupContainerView : QMUIPopupContainerView
+@property (nonatomic ,strong) UITableView *tableView;
+@property (nonatomic, assign) NSInteger height;
+@end
+
+@implementation QDPopupContainerView
+
+- (instancetype)initWithDelegate:(id<UITableViewDelegate>)delegate dataSource:(id<UITableViewDataSource>)dataSource height:(NSInteger)height {
+    self = [super init];
+    if (self) {
+        self.contentEdgeInsets = UIEdgeInsetsZero;
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        self.tableView.delegate = delegate;
+        self.tableView.dataSource = dataSource;
+        [self.contentView addSubview:self.tableView];
+        self.height = height;
+        self.tableView.tableFooterView = [[UIView alloc] init];
+    }
+    return self;
+}
+
+- (CGSize)sizeThatFitsInContentView:(CGSize)size {
+    return CGSizeMake(80, self.height);
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    // 所有布局都参照 contentView
+    self.tableView.frame = self.contentView.bounds;
+    
+}
+@end
+
+@interface GODDynamicController ()
+<
+ASTableDelegate,
+ASTableDataSource,
+GODDynamicCellNodeDelegate,
+UITableViewDelegate,
+UITableViewDataSource
+>
 @property (nonatomic, strong) ASTableNode *tableNode;
 @property (nonatomic, strong) NSMutableArray *dataList;
+@property (nonatomic, strong) QDPopupContainerView *popupView;
+@property (nonatomic, strong) NSArray *funcList;
 @end
 
 @implementation GODDynamicController
+
+- (NSArray *)funcList {
+    if (!_funcList) {
+        _funcList = @[
+                      @"举报"
+                      ];
+    }
+    return _funcList;
+}
+
+- (void)setPopupViewWithHeight:(NSInteger)height targetView:(UIView *)targetView {
+    self.popupView = [[QDPopupContainerView alloc] initWithDelegate:self dataSource:self height:height];
+    self.popupView.maskViewBackgroundColor = UIColorMaskWhite;
+    self.popupView.automaticallyHidesWhenUserTap = YES;
+    [self.popupView layoutWithTargetRectInScreenCoordinate:[targetView convertRect:targetView.bounds toView:nil]];
+    self.popupView.preferLayoutDirection = QMUIPopupContainerViewLayoutDirectionBelow;// 默认在目标的下方，如果目标下方空间不够，会尝试放到目标上方。若上方空间也不够，则缩小自身的高度。
+    self.popupView.didHideBlock = ^(BOOL hidesByUserTap) {
+        
+    };
+    
+}
 
 - (instancetype)init {
     self = [super init];
