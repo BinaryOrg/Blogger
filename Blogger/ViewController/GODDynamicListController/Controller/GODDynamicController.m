@@ -207,7 +207,7 @@ UITableViewDataSource
         GODDynamicModel *model = self.dataList[indexPath.row];
         GODDynamicCellNode *node = [[GODDynamicCellNode alloc] initWithModel:model];;
         node.delegate = self;
-        
+        node.neverShowPlaceholders = YES;
         return node;
         
     };

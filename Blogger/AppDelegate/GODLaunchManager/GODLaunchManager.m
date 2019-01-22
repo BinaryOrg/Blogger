@@ -30,6 +30,7 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor themeColor]];
     [[UITabBar appearance] setBarTintColor:[UIColor themeColor]];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     GODMainViewController *main = [[GODMainViewController alloc] init];
     GODMusicViewController *music = [[GODMusicViewController alloc] init];
