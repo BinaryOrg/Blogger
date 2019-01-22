@@ -47,6 +47,7 @@ fprintf(stderr, "-------\n");                                               \
 /** 顶部安全距离高度[适配PhoneX底部] */
 #define SafeAreaTopHeight (Height >= 812.0 ? 24 : 0)
 
+#define SafeTabBarHeight (CGFloat)(Height >= 812.0?(49.0 + 34.0):(49.0))
 
 
 // 安全执行Block

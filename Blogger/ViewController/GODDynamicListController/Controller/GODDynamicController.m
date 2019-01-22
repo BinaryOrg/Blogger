@@ -42,14 +42,14 @@
 - (void)setupUI {
     
     self.tableNode.view.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(tableViewDidTriggerHeaderRefresh)];
-    self.tableNode.view.mj_footer = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(tableViewDidTriggerFooterRefresh)];
+    self.tableNode.view.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(tableViewDidTriggerFooterRefresh)];
     
     
     [self.view addSubview:self.tableNode.view];
     [self.tableNode.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
         make.top.mas_equalTo(NavigationBarHeight);
-        make.bottom.mas_equalTo(-SafeAreaBottomHeight);
+        make.bottom.mas_equalTo(-SafeAreaBottomHeight - SafeTabBarHeight);
     }];
     
 }
@@ -65,7 +65,7 @@
 
 - (void)loadData:(BOOL)isAdd {
     [MFHUDManager showLoading:@"加载中"];
-    NSString *url = [NSString stringWithFormat:@"user/comments?phone=%@&&index=%lu", [GODUserTool shared].phone.length ? [GODUserTool shared].phone : @"", (self.dataList.count / 10)];
+    NSString *url = [NSString stringWithFormat:@"user/comments?phone=%@&&index=%lu", [GODUserTool shared].phone.length ? [GODUserTool shared].phone : @"", isAdd ? (self.dataList.count / 10) : 0];
     [MFNETWROK get:url params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
         [MFHUDManager dismiss];
         [self.tableNode.view.mj_header endRefreshing];
