@@ -11,7 +11,7 @@
 #import "NSMutableAttributedString+Chain.h"
 
 @interface GODDynamicCellNode ()
-/** <#class#> */
+@property (nonatomic, strong) ASButtonNode *operationbtn;
 @property (nonatomic, strong) ASTextNode *contentNode;
 @property (nonatomic, strong) GODToolNode *coterieToolNode;
 @property (nonatomic, strong) ASDisplayNode *lineNode;
@@ -41,6 +41,14 @@
         [self addSubnode:self.coterieToolNode];
         
         
+        self.operationbtn = [[ASButtonNode alloc] init];
+        self.operationbtn.imageNode.image = [UIImage imageNamed:@"bnt_more"];
+        self.operationbtn.style.preferredSize = CGSizeMake(30, 30);
+        [self.operationbtn addTarget:self action:@selector(clickOperation) forControlEvents:ASControlNodeEventTouchUpInside];
+        [self addSubnode:self.operationbtn];
+
+        
+        
         NSMutableAttributedString *text = [NSMutableAttributedString lh_makeAttributedString:model.summary attributes:^(NSMutableDictionary *make) {
             make.lh_font([UIFont systemFontOfSize:15.0]).lh_color([UIColor colorWithHexString:@"354048"]);
         }];
@@ -51,7 +59,7 @@
         _contentNode.maximumNumberOfLines = 0;
         _contentNode.userInteractionEnabled = YES;
         _contentNode.attributedText = text;
-        _contentNode.style.maxWidth = ASDimensionMakeWithPoints(Width - 40);
+        _contentNode.style.maxWidth = ASDimensionMakeWithPoints(Width - 70);
         [self addSubnode:_contentNode];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         _lineNode = [ASDisplayNode new];
@@ -63,17 +71,34 @@
     return self;
 }
 
+- (void)clickOperation {
+    if ([self.delegate respondsToSelector:@selector(clickOperationWithNode:)]) {
+        [self.delegate clickOperationWithNode:self];
+    }
+    
+}
+
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize {
-   
+    
+    ASStackLayoutSpec *horSpec = [ASStackLayoutSpec horizontalStackLayoutSpec];
+    horSpec.spacing = 0.0f;
+    horSpec.children = @[self.contentNode , self.operationbtn];
+    
     
     ASStackLayoutSpec *verticalSpec = [ASStackLayoutSpec verticalStackLayoutSpec];
     verticalSpec.spacing = 13;
-    verticalSpec.children = @[self.contentNode , self.coterieToolNode];
+    verticalSpec.children = @[horSpec, self.coterieToolNode];
     
     
     ASStackLayoutSpec *lineSpec = [ASStackLayoutSpec verticalStackLayoutSpec];
     lineSpec.spacing = 15;
     lineSpec.children = @[verticalSpec, self.lineNode];
+    
+//    ASInsetLayoutSpec *insertSpe = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(10, INFINITY, INFINITY, 0) child:self.operationbtn];
+    
+    
+//    ASOverlayLayoutSpec *overLay = [ASOverlayLayoutSpec overlayLayoutSpecWithChild:lineSpec overlay:lineSpec];
+    
     
     ASInsetLayoutSpec *insetLayout = [self insetLayoutWithChild:lineSpec];
     

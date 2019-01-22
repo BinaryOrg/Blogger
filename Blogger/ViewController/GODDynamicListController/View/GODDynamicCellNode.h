@@ -10,6 +10,7 @@
 @protocol GODDynamicCellNodeDelegate<NSObject>
 
 - (void)clickEnjoyWithNode:(GODDynamicCellNode *)cellNode;
+- (void)clickOperationWithNode:(GODDynamicCellNode *)cellNode;
 
 @end
 NS_ASSUME_NONNULL_BEGIN

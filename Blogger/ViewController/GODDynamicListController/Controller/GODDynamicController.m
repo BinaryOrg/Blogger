@@ -106,6 +106,11 @@
         }];
     }
 }
+//操作
+- (void)clickOperationWithNode:(GODDynamicCellNode *)cellNode {
+    
+    
+}
 
 #pragma mark - tableViewDataSourceAndDelegate
 - (NSInteger)tableNode:(ASTableNode *)tableNode numberOfRowsInSection:(NSInteger)section {
