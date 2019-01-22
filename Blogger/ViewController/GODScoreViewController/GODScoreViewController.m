@@ -88,7 +88,7 @@ UITableViewDelegate
 }
 
 - (void)buttonClick {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", @(1195737826)]] options:@{} completionHandler:nil];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", @(1450164194)]] options:@{} completionHandler:nil];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
