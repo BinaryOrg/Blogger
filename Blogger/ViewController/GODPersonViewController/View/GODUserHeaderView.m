@@ -9,10 +9,11 @@
 
 #import "GODUserHeaderView.h"
 #import <UIImageView+YYWebImage.h>
+#import "GODSDKConfigKey.h"
 @interface GODUserHeaderView ()
 
-@property (nonatomic, strong) UIImageView *imgView;
-@property (nonatomic, strong) UIButton *btn;
+
+
 
 
 @end
@@ -23,8 +24,9 @@
     if (self = [super init]) {
         [self setupUI];
         GODUserModel *user = [GODUserTool shared].user;
+        NSLog(@"%@", user.username);
+        [self.imgView yy_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", BASE_AVATAR_URL, user.avatar]] placeholder:[UIImage imageNamed:@"avatar_login"]];
         if (user) {
-            [self.imgView setYy_imageURL:[NSURL URLWithString:user.avatar]];
             [self.btn setTitle:user.username forState:UIControlStateNormal];
         }else {
             [self.btn setTitle:@"登录" forState:UIControlStateNormal];
@@ -57,6 +59,10 @@
         if (self.clickLogBtn) {
             self.clickLogBtn();
         }
+    }else {
+        if (self.clickUserName) {
+            self.clickUserName();
+        }
     }
 }
 
@@ -75,7 +81,7 @@
         _imgView.contentMode = UIViewContentModeScaleAspectFill;
         _imgView.layer.masksToBounds = YES;
         _imgView.layer.cornerRadius = 30;
-        _imgView.image = [UIImage imageNamed:@"iosUser_24x24_"];
+//        _imgView.image = [UIImage imageNamed:@"avatar_login"];
         _imgView.userInteractionEnabled = YES;
         [_imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickAvatar)]];
     }

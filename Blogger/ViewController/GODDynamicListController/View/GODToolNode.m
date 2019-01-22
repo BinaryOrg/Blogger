@@ -11,7 +11,7 @@
 #import "NSMutableAttributedString+Chain.h"
 #import "ASButtonNode+LHExtension.h"
 #import "UIView+LH.h"
-
+#import "GODSDKConfigKey.h"
 @interface GODToolNode ()
 
 @property (nonatomic, strong) ASButtonNode *thumbNode;
@@ -71,7 +71,7 @@
     _iconNode = [[ASNetworkImageNode alloc] init];
     _iconNode.cornerRadius = 12;
 //    _iconNode.defaultImage = LHPlaceholderCoverImage01;
-    _iconNode.URL = [NSURL URLWithString:model.user.avatar.length ? model.user.avatar : @"http://a3.att.hudong.com/58/63/01300542846491148697637760361.jpg"];
+    _iconNode.URL = [NSURL URLWithString:model.user.avatar.length ? [NSString stringWithFormat:@"%@%@", BASE_AVATAR_URL, model.user.avatar] : @"http://a3.att.hudong.com/58/63/01300542846491148697637760361.jpg"];
     _iconNode.style.preferredSize = CGSizeMake(24, 24);
     [_iconNode addTarget:self action:@selector(onTouchCoterieNode) forControlEvents:ASControlNodeEventTouchUpInside];
     
