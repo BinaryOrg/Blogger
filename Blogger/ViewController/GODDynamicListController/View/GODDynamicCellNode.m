@@ -11,7 +11,7 @@
 #import "NSMutableAttributedString+Chain.h"
 
 @interface GODDynamicCellNode ()
-@property (nonatomic, strong) ASButtonNode *operationbtn;
+@property (nonatomic, strong) ASImageNode *operationbtn;
 @property (nonatomic, strong) ASTextNode *contentNode;
 @property (nonatomic, strong) GODToolNode *coterieToolNode;
 @property (nonatomic, strong) ASDisplayNode *lineNode;
@@ -41,8 +41,8 @@
         [self addSubnode:self.coterieToolNode];
         
         
-        self.operationbtn = [[ASButtonNode alloc] init];
-        self.operationbtn.imageNode.image = [UIImage imageNamed:@"bnt_more"];
+        self.operationbtn = [[ASImageNode alloc] init];
+        self.operationbtn.image = [UIImage imageNamed:@"bnt_more"];
         self.operationbtn.style.preferredSize = CGSizeMake(30, 30);
         [self.operationbtn addTarget:self action:@selector(clickOperation) forControlEvents:ASControlNodeEventTouchUpInside];
         [self addSubnode:self.operationbtn];

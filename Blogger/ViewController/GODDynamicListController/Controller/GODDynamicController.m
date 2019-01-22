@@ -11,6 +11,7 @@
 #import "GODDynamicCellNode.h"
 #import "GODPostController.h"
 #import "GODLoginTelephoneViewController.h"
+#import <QMUIKit.h>
 
 @interface GODDynamicController ()<ASTableDelegate, ASTableDataSource, GODDynamicCellNodeDelegate>
 @property (nonatomic, strong) ASTableNode *tableNode;
@@ -108,8 +109,29 @@
 }
 //操作
 - (void)clickOperationWithNode:(GODDynamicCellNode *)cellNode {
-    
-    
+    if (![QMUIAlertController isAnyAlertControllerVisible]) {
+        
+        QMUIAlertController *alert = [QMUIAlertController alertControllerWithTitle:nil message:@"举报" preferredStyle:QMUIAlertControllerStyleAlert];
+        [alert addTextFieldWithConfigurationHandler:^(QMUITextField *textField) {
+            textField.placeholder = @"请输入举报信息";
+        }];
+        
+        QMUIAlertAction *action1 = [QMUIAlertAction actionWithTitle:@"确定" style:QMUIAlertActionStyleDefault handler:^(__kindof QMUIAlertController *aAlertController, QMUIAlertAction *action) {
+            NSString *reportText = aAlertController.textFields.firstObject.text;
+            if (!reportText) {
+                [MFHUDManager showError:[NSString stringWithFormat:@"请输入举报内容"]];
+                return;
+            }
+            [MFHUDManager showSuccess:@"举报成功!"];
+
+        }];
+        
+        QMUIAlertAction *action2 = [QMUIAlertAction actionWithTitle:@"取消" style:QMUIAlertActionStyleCancel handler:nil];
+        
+        [alert addAction:action1];
+        [alert addAction:action2];
+        [alert showWithAnimated:YES];
+    }
 }
 
 #pragma mark - tableViewDataSourceAndDelegate
