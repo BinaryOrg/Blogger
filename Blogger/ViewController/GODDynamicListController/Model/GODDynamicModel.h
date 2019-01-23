@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GODDynamicModel : NSObject
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSDate *date;
 @property (nonatomic, assign) BOOL is_like;
 @property (nonatomic, assign) NSInteger like_count;
 @property (nonatomic, strong) NSString *summary;

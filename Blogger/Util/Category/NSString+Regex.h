@@ -28,4 +28,5 @@
  *  正则判断是否是 微信格式
  */
 - (BOOL)isWeChatNumber;
+
 @end

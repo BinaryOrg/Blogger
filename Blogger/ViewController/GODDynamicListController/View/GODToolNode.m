@@ -12,11 +12,12 @@
 #import "ASButtonNode+LHExtension.h"
 #import "UIView+LH.h"
 #import "GODSDKConfigKey.h"
+#import "NetworkImageNode.h"
 @interface GODToolNode ()
 
 @property (nonatomic, strong) ASButtonNode *thumbNode;
 @property (nonatomic, strong) ASButtonNode *commentNode;
-@property (nonatomic, strong) ASNetworkImageNode *iconNode;
+@property (nonatomic, strong) NetworkImageNode *iconNode;
 @property (nonatomic, strong) ASTextNode *titleNode;
 @property (nonatomic, strong) GODDynamicModel *model;
 @end
@@ -40,8 +41,8 @@
     _thumbNode = [[ASButtonNode alloc] init];
     [_thumbNode lh_setEnlargeEdgeWithTop:10.0f right:15.0f bottom:10.0f left:15.0f];
     [_thumbNode setAttributedTitle:[NSMutableAttributedString lh_makeAttributedString:thubCount attributes:attributes] forState:UIControlStateNormal];
-    [_thumbNode setImage:[UIImage imageNamed:@"bnt_zan"] forState:UIControlStateNormal];
-    [_thumbNode setImage:[UIImage imageNamed:@"bnt_zan_pre"] forState:UIControlStateSelected];
+    [_thumbNode setImage:[UIImage imageNamed:@"ic_messages_like_20x20_"] forState:UIControlStateNormal];
+    [_thumbNode setImage:[UIImage imageNamed:@"ic_messages_like_selected_20x20_"] forState:UIControlStateSelected];
     [_thumbNode addTarget:self action:@selector(onTouchThumbNode:) forControlEvents:ASControlNodeEventTouchUpInside];
     _thumbNode.selected = model.is_like;
     
@@ -68,7 +69,7 @@
     _titleNode.style.maxWidth = ASDimensionMake(Width - 165 - 33);
     [_titleNode addTarget:self action:@selector(onTouchCoterieNode) forControlEvents:ASControlNodeEventTouchUpInside];
     
-    _iconNode = [[ASNetworkImageNode alloc] init];
+    _iconNode = [[NetworkImageNode alloc] init];
     _iconNode.cornerRadius = 12;
 //    _iconNode.defaultImage = LHPlaceholderCoverImage01;
     _iconNode.URL = [NSURL URLWithString:model.user.avatar.length ? [NSString stringWithFormat:@"%@%@", BASE_AVATAR_URL, model.user.avatar] : @"http://a3.att.hudong.com/58/63/01300542846491148697637760361.jpg"];

@@ -23,6 +23,11 @@
 		37F50AEE21F47ED000D6D152 /* NSMutableAttributedString+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AEC21F47ED000D6D152 /* NSMutableAttributedString+Chain.m */; };
 		37F50AF121F4809F00D6D152 /* UIView+LH.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AEF21F4809F00D6D152 /* UIView+LH.m */; };
 		45AA16F5998E7D8D7CCDE87C /* libPods-Blogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7466A141CD059734410289F3 /* libPods-Blogger.a */; };
+		4A8E71CD21F80C49002495CE /* GODDynamicDetailListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71CC21F80C49002495CE /* GODDynamicDetailListController.m */; };
+		4A8E71D021F80D64002495CE /* GODDynamicDetailNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71CF21F80D64002495CE /* GODDynamicDetailNode.m */; };
+		4A8E71D321F816ED002495CE /* GODDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71D221F816ED002495CE /* GODDetailModel.m */; };
+		4A8E71D621F82BD3002495CE /* NetworkImageNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71D521F82BD3002495CE /* NetworkImageNode.m */; };
+		4A8E71D921F83A82002495CE /* GODDynamicCommentNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71D821F83A82002495CE /* GODDynamicCommentNode.m */; };
 		5E1DB25621EE06D7009A477C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB25521EE06D7009A477C /* AppDelegate.m */; };
 		5E1DB25E21EE06D7009A477C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E1DB25D21EE06D7009A477C /* Assets.xcassets */; };
 		5E1DB26121EE06D7009A477C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E1DB25F21EE06D7009A477C /* LaunchScreen.storyboard */; };
@@ -82,6 +87,16 @@
 		37F50AED21F47ED000D6D152 /* NSMutableAttributedString+Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Chain.h"; sourceTree = "<group>"; };
 		37F50AEF21F4809F00D6D152 /* UIView+LH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LH.m"; sourceTree = "<group>"; };
 		37F50AF021F4809F00D6D152 /* UIView+LH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LH.h"; sourceTree = "<group>"; };
+		4A8E71CB21F80C49002495CE /* GODDynamicDetailListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicDetailListController.h; sourceTree = "<group>"; };
+		4A8E71CC21F80C49002495CE /* GODDynamicDetailListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDynamicDetailListController.m; sourceTree = "<group>"; };
+		4A8E71CE21F80D64002495CE /* GODDynamicDetailNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicDetailNode.h; sourceTree = "<group>"; };
+		4A8E71CF21F80D64002495CE /* GODDynamicDetailNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDynamicDetailNode.m; sourceTree = "<group>"; };
+		4A8E71D121F816ED002495CE /* GODDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDetailModel.h; sourceTree = "<group>"; };
+		4A8E71D221F816ED002495CE /* GODDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDetailModel.m; sourceTree = "<group>"; };
+		4A8E71D421F82BD3002495CE /* NetworkImageNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkImageNode.h; sourceTree = "<group>"; };
+		4A8E71D521F82BD3002495CE /* NetworkImageNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkImageNode.m; sourceTree = "<group>"; };
+		4A8E71D721F83A82002495CE /* GODDynamicCommentNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicCommentNode.h; sourceTree = "<group>"; };
+		4A8E71D821F83A82002495CE /* GODDynamicCommentNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDynamicCommentNode.m; sourceTree = "<group>"; };
 		4D5456069D2FA8C2505885F7 /* Pods-Blogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blogger/Pods-Blogger.debug.xcconfig"; sourceTree = "<group>"; };
 		5E1DB25121EE06D7009A477C /* Blogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E1DB25421EE06D7009A477C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -248,8 +263,49 @@
 				37F50ADE21F4790500D6D152 /* GODDynamicCellNode.m */,
 				37F50AE321F47BFA00D6D152 /* GODToolNode.h */,
 				37F50AE421F47BFA00D6D152 /* GODToolNode.m */,
+				4A8E71D421F82BD3002495CE /* NetworkImageNode.h */,
+				4A8E71D521F82BD3002495CE /* NetworkImageNode.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4A8E71C421F80BD2002495CE /* GODDynamicDetailListController */ = {
+			isa = PBXGroup;
+			children = (
+				4A8E71C721F80BFF002495CE /* Model */,
+				4A8E71C621F80BF7002495CE /* View */,
+				4A8E71C521F80BE8002495CE /* Controller */,
+			);
+			path = GODDynamicDetailListController;
+			sourceTree = "<group>";
+		};
+		4A8E71C521F80BE8002495CE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4A8E71CB21F80C49002495CE /* GODDynamicDetailListController.h */,
+				4A8E71CC21F80C49002495CE /* GODDynamicDetailListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4A8E71C621F80BF7002495CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A8E71CE21F80D64002495CE /* GODDynamicDetailNode.h */,
+				4A8E71CF21F80D64002495CE /* GODDynamicDetailNode.m */,
+				4A8E71D721F83A82002495CE /* GODDynamicCommentNode.h */,
+				4A8E71D821F83A82002495CE /* GODDynamicCommentNode.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A8E71C721F80BFF002495CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A8E71D121F816ED002495CE /* GODDetailModel.h */,
+				4A8E71D221F816ED002495CE /* GODDetailModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5E1DB24821EE06D6009A477C = {
@@ -366,6 +422,7 @@
 		5E1DB28021EE1A99009A477C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4A8E71C421F80BD2002495CE /* GODDynamicDetailListController */,
 				37E7740521F358FA0026E158 /* GODDynamicListController */,
 				37D4818B21F3037900BB6B2A /* GODLogInViewController */,
 				37D4818021F2F0DB00BB6B2A /* GODPostViewController */,
@@ -531,7 +588,7 @@
 		5E1DB24921EE06D6009A477C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = GodzzZZZ;
 				TargetAttributes = {
 					5E1DB25021EE06D7009A477C = {
@@ -601,6 +658,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Blogger/Pods-Blogger-resources.sh",
+				"${PODS_ROOT}/DateTools/DateTools/DateTools/DateTools.bundle",
 				"${PODS_ROOT}/MFHUDManager/Image/notice_type_error.png",
 				"${PODS_ROOT}/MFHUDManager/Image/notice_type_success.png",
 				"${PODS_ROOT}/MFHUDManager/Image/notice_type_warnning.png",
@@ -609,6 +667,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DateTools.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/notice_type_error.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/notice_type_success.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/notice_type_warnning.png",
@@ -636,6 +695,8 @@
 				37D4819121F3039000BB6B2A /* GODLoginTelephoneViewController.m in Sources */,
 				37F50AE521F47BFA00D6D152 /* GODToolNode.m in Sources */,
 				5E1DB28E21EE1C06009A477C /* GODBlogTableViewCell.m in Sources */,
+				4A8E71D321F816ED002495CE /* GODDetailModel.m in Sources */,
+				4A8E71D021F80D64002495CE /* GODDynamicDetailNode.m in Sources */,
 				5E1DB29921EE25F7009A477C /* NSObject+YYModel.m in Sources */,
 				37F50AEB21F47E1000D6D152 /* ASButtonNode+LHExtension.m in Sources */,
 				37F50AF121F4809F00D6D152 /* UIView+LH.m in Sources */,
@@ -659,11 +720,14 @@
 				5E1DB25621EE06D7009A477C /* AppDelegate.m in Sources */,
 				5E1DB28421EE1ABD009A477C /* GODMainViewController.m in Sources */,
 				5E1DB27D21EE18D8009A477C /* GODSDKManager.m in Sources */,
+				4A8E71CD21F80C49002495CE /* GODDynamicDetailListController.m in Sources */,
 				5E1DB2A521EED50D009A477C /* GODConfigurationTableViewCell.m in Sources */,
 				37F50AEE21F47ED000D6D152 /* NSMutableAttributedString+Chain.m in Sources */,
 				5E1DB2AC21EEFE42009A477C /* GODScoreViewController.m in Sources */,
 				5E1DB2A821EEE35E009A477C /* GODErrorView.m in Sources */,
 				5E4E0D1821F05824009833BF /* GODBackgroundViewController.m in Sources */,
+				4A8E71D921F83A82002495CE /* GODDynamicCommentNode.m in Sources */,
+				4A8E71D621F82BD3002495CE /* NetworkImageNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,6 +759,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -702,6 +767,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -750,6 +816,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -757,6 +824,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
