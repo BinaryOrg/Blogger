@@ -7,20 +7,16 @@
 //
 
 #import "NetworkImageNode.h"
-#import "GODDynamicModel.h"
+#import "GODDetailModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GODDynamicDetailNode : ASCellNode
 @property(nonatomic, strong) NetworkImageNode *profilePhotoNode;
 @property(nonatomic, strong) ASTextNode2 *summaryNode;
-
 @property(nonatomic, strong) ASTextNode2 *dateNode;
-@property(nonatomic, strong) ASImageNode *likeNode;
-@property(nonatomic, strong) ASTextNode2 *countNode;
-@property(nonatomic, strong) ASImageNode *commentNode;
-
-//- (instancetype)initWithModel:(GODDynamicModel *)model;
+@property(nonatomic, strong) GODDetailModel *model;
+- (instancetype)initWithModel:(GODDetailModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

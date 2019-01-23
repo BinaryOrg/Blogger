@@ -52,6 +52,7 @@
 		5E1DB2B521EF81B9009A477C /* GODMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2B421EF81B9009A477C /* GODMusicModel.m */; };
 		5E1DB2B821EF828C009A477C /* GODMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2B721EF828C009A477C /* GODMusicTableViewCell.m */; };
 		5E4E0D1821F05824009833BF /* GODBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E0D1721F05824009833BF /* GODBackgroundViewController.m */; };
+		5E6DE7F121F89EA500E2BF78 /* GODAppendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6DE7F021F89EA500E2BF78 /* GODAppendViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +149,8 @@
 		5E1DB2B721EF828C009A477C /* GODMusicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODMusicTableViewCell.m; sourceTree = "<group>"; };
 		5E4E0D1621F05824009833BF /* GODBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODBackgroundViewController.h; sourceTree = "<group>"; };
 		5E4E0D1721F05824009833BF /* GODBackgroundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODBackgroundViewController.m; sourceTree = "<group>"; };
+		5E6DE7EF21F89EA500E2BF78 /* GODAppendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODAppendViewController.h; sourceTree = "<group>"; };
+		5E6DE7F021F89EA500E2BF78 /* GODAppendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODAppendViewController.m; sourceTree = "<group>"; };
 		7466A141CD059734410289F3 /* libPods-Blogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Blogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -422,6 +425,7 @@
 		5E1DB28021EE1A99009A477C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5E6DE7EE21F89E7D00E2BF78 /* GODAppendController */,
 				4A8E71C421F80BD2002495CE /* GODDynamicDetailListController */,
 				37E7740521F358FA0026E158 /* GODDynamicListController */,
 				37D4818B21F3037900BB6B2A /* GODLogInViewController */,
@@ -550,6 +554,15 @@
 				5E4E0D1721F05824009833BF /* GODBackgroundViewController.m */,
 			);
 			path = GODBackgroundViewController;
+			sourceTree = "<group>";
+		};
+		5E6DE7EE21F89E7D00E2BF78 /* GODAppendController */ = {
+			isa = PBXGroup;
+			children = (
+				5E6DE7EF21F89EA500E2BF78 /* GODAppendViewController.h */,
+				5E6DE7F021F89EA500E2BF78 /* GODAppendViewController.m */,
+			);
+			path = GODAppendController;
 			sourceTree = "<group>";
 		};
 		BE733DEFC175659CFA618394 /* Frameworks */ = {
@@ -713,6 +726,7 @@
 				37D4819B21F305BB00BB6B2A /* GODUserModel.m in Sources */,
 				5E1DB28B21EE1BC8009A477C /* GODTableCard.m in Sources */,
 				5E1DB29A21EE25F7009A477C /* YYClassInfo.m in Sources */,
+				5E6DE7F121F89EA500E2BF78 /* GODAppendViewController.m in Sources */,
 				5E1DB2A221EED227009A477C /* GODAvatarTableViewCell.m in Sources */,
 				37D4819421F3044400BB6B2A /* NSString+Regex.m in Sources */,
 				37F50ADC21F4775400D6D152 /* GODDynamicController.m in Sources */,

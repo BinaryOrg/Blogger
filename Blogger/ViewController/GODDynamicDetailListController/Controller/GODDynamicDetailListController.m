@@ -9,6 +9,8 @@
 #import "GODDynamicDetailListController.h"
 #import "GODDynamicCommentNode.h"
 #import "GODLoginTelephoneViewController.h"
+#import "GODAppendViewController.h"
+#import "GODDynamicDetailNode.h"
 
 #define AUTO_TAIL_LOADING_NUM_SCREENFULS  2.5
 @interface GODDynamicDetailListController ()<ASTableDelegate, ASTableDataSource, GODDynamicCommentNodeDelegate>
@@ -45,17 +47,44 @@
     [super viewDidLoad];
     self.tableNode.view.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.node addSubnode:self.tableNode];
+    [self loadData];
+}
+
+- (void)loadData {
+    [MFHUDManager showLoading:@"加载中"];
+    [MFNETWROK get:[NSString stringWithFormat:@"user/appends?commentId=%@", @(self.model.id)] params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+        NSLog(@"%@", result);
+        [MFHUDManager dismiss];
+        NSMutableArray *list = @[].mutableCopy;
+        for (NSDictionary *dic in result) {
+            GODDetailModel *model = [GODDetailModel yy_modelWithJSON:dic];
+            [list addObject:model];
+        }
+        [list sortUsingComparator:^NSComparisonResult(GODDetailModel *obj1, GODDetailModel *obj2) {
+            return obj1.date < obj2.date;
+        }];
+        [self.dataList addObjectsFromArray:list];
+        [self.tableNode reloadData];
+    } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
+        NSLog(@"%@", error.userInfo);
+        [MFHUDManager dismiss];
+    }];
 }
 
 - (NSInteger)tableNode:(ASTableNode *)tableNode numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 1 + self.dataList.count;
 }
 
 - (ASCellNode *)tableNode:(ASTableNode *)tableNode nodeForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GODDynamicModel *model = self.model;
-    GODDynamicCommentNode *node = [[GODDynamicCommentNode alloc] initWithModel:model];
-    node.neverShowPlaceholders = YES;
-    node.delegate = self;
+    if (indexPath.row == 0) {
+        GODDynamicModel *model = self.model;
+        GODDynamicCommentNode *node = [[GODDynamicCommentNode alloc] initWithModel:model];
+        node.neverShowPlaceholders = YES;
+        node.delegate = self;
+        return node;
+    }
+    GODDetailModel *model = self.dataList[indexPath.row - 1];
+    GODDynamicDetailNode *node = [[GODDynamicDetailNode alloc] initWithModel:model];
     return node;
 }
 
@@ -74,14 +103,18 @@
 }
 
 - (void)clickCommentButton:(GODDynamicCommentNode *)node {
-    NSLog(@"%ld", (long)node.model.like_count);
+    if ([GODUserTool shared].user.id.length == 0) {//没有登录
+        [self presentViewController:[[GODLoginTelephoneViewController alloc] init] animated:YES completion:nil];
+    }else {
+        GODAppendViewController *vc = [[GODAppendViewController alloc] init];
+        vc.commentId = node.model.id;
+        vc.returnModel = ^(GODDetailModel *model) {
+            [self.dataList insertObject:model atIndex:0];
+            [self.tableNode reloadData];
+        };
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
-//- (ASCellNodeBlock)tableNode:(ASTableNode *)tableNode nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return ^ASCellNode *() {
-//
-//    };
-//
-//}
 
 @end

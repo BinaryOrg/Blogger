@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "YYModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GODDetailModel : NSObject
-
+@property (nonatomic, strong) GODUserModel *user;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSString *append;
 @end
 
 NS_ASSUME_NONNULL_END
