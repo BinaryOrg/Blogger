@@ -47,6 +47,11 @@
         [self addSubnode:self.profilePhotoNode];
         self.profilePhotoNode.style.preferredSize = CGSizeMake(22, 22);
         self.profilePhotoNode.cornerRadius = 11;
+        
+        self.nickNode = [[ASTextNode2 alloc] init];
+        self.nickNode.attributedText = [self nickAttributedStringWithFontSize:15];
+        [self addSubnode:self.nickNode];
+        
         self.summaryNode = [[ASTextNode2 alloc] init];
         self.summaryNode.attributedText = [self summaryAttributedStringWithFontSize:16];
         [self addSubnode:self.summaryNode];
@@ -67,7 +72,7 @@
     
     ASStackLayoutSpec *stack4 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:10 justifyContent:ASStackLayoutJustifyContentSpaceBetween alignItems:ASStackLayoutAlignItemsCenter children:@[self.dateNode, stack3]];
    
-    ASStackLayoutSpec *stack7 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:10 justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsStart children:@[self.profilePhotoNode]];
+    ASStackLayoutSpec *stack7 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:15 justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[self.profilePhotoNode, self.nickNode]];
     
     ASStackLayoutSpec *stack5 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical spacing:15 justifyContent:ASStackLayoutJustifyContentSpaceBetween alignItems:ASStackLayoutAlignItemsStretch children:@[stack7, self.summaryNode, stack4]];
     
@@ -116,6 +121,11 @@
 - (NSAttributedString *)countAttributedStringWithFontSize:(CGFloat)size {
     return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", @(self.model.like_count)] attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:size],
                                                                                    NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
+}
+
+- (NSAttributedString *)nickAttributedStringWithFontSize:(CGFloat)size {
+    return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", self.model.user.username] attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:size],
+                                                                                                                               NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
 }
 
 @end

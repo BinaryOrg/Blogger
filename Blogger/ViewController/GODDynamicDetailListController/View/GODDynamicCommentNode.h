@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak) id<GODDynamicCommentNodeDelegate> delegate;
 
 @property(nonatomic, strong) NetworkImageNode *profilePhotoNode;
+@property(nonatomic, strong) ASTextNode2 *nickNode;
 @property(nonatomic, strong) ASTextNode2 *summaryNode;
 
 @property(nonatomic, strong) ASTextNode2 *dateNode;

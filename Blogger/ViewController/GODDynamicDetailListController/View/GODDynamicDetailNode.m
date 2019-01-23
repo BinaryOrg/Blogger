@@ -44,7 +44,7 @@
 }
 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize {
-    ASStackLayoutSpec *stack1 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:20 justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[self.profilePhotoNode, self.dateNode]];
+    ASStackLayoutSpec *stack1 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:15 justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[self.profilePhotoNode, self.dateNode]];
     
     ASStackLayoutSpec *stack5 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical spacing:15 justifyContent:ASStackLayoutJustifyContentSpaceBetween alignItems:ASStackLayoutAlignItemsStretch children:@[stack1, self.summaryNode]];
     
