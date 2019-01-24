@@ -21,4 +21,5 @@ pod 'MFExtractColor'
 pod 'Masonry'
 pod 'Texture'
 pod 'mob_smssdk'
+pod 'DateTools'
 end

@@ -14,9 +14,7 @@
 #import <MFHUDManager/MFHUDManager.h>
 #import <UserNotifications/UserNotifications.h>
 @interface AppDelegate ()
-//<
-//JPUSHRegisterDelegate
-//>
+
 @end
 
 @implementation AppDelegate

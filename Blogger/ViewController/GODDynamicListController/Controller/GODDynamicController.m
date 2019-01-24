@@ -12,6 +12,7 @@
 #import "GODPostController.h"
 #import "GODLoginTelephoneViewController.h"
 #import <QMUIKit/QMUIKit.h>
+#import "GODDynamicDetailListController.h"
 
 @interface QDPopupContainerView : QMUIPopupContainerView
 @property (nonatomic ,strong) UITableView *tableView;
@@ -99,7 +100,7 @@ UITableViewDataSource
     self.title = @"动态";
     [self setupUI];
     
-  
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewDidTriggerHeaderRefresh) name:@"like" object:nil];
     [self loadData:NO];
 
 }
@@ -207,7 +208,7 @@ UITableViewDataSource
         GODDynamicModel *model = self.dataList[indexPath.row];
         GODDynamicCellNode *node = [[GODDynamicCellNode alloc] initWithModel:model];;
         node.delegate = self;
-        
+        node.neverShowPlaceholders = YES;
         return node;
         
     };
@@ -217,7 +218,13 @@ UITableViewDataSource
 - (void)tableNode:(ASTableNode *)tableNode didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableNode deselectRowAtIndexPath:indexPath animated:YES];
     
-    
+    GODDynamicDetailListController *dynamicDetail = [[GODDynamicDetailListController alloc] init];
+    dynamicDetail.model = self.dataList[indexPath.row];
+    [self.navigationController pushViewController:dynamicDetail animated:YES];
+}
+
+- (BOOL)tableNode:(ASTableNode *)tableNode shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 -(ASTableNode *)tableNode {
@@ -242,5 +249,9 @@ UITableViewDataSource
         _dataList = [NSMutableArray array];
     }
     return _dataList;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
