@@ -12,6 +12,9 @@
 
 @interface GODDynamicCommentNode ()
 @property (nonatomic, strong) ASDisplayNode *lineNode;
+@property(nonatomic, strong) ASDisplayNode *bottmLineNode;
+@property(nonatomic, strong) ASTextNode2 *groupTitleNode;
+@property(nonatomic, strong) ASDisplayNode *groupNode;
 @end
 
 @implementation GODDynamicCommentNode
@@ -61,11 +64,34 @@
         [_lineNode setLayerBacked:YES];
         _lineNode.style.preferredSize = CGSizeMake(Width - 40, 1.0f);
         [self addSubnode:_lineNode];
+        
+        _bottmLineNode = [ASDisplayNode new];
+        _bottmLineNode.backgroundColor = GODColor(238, 238, 238);
+        [_bottmLineNode setLayerBacked:YES];
+        _bottmLineNode.style.preferredSize = CGSizeMake(Width - 40, 1.0f);
+        [self addSubnode:_bottmLineNode];
+        
+        _groupNode = [[ASDisplayNode alloc] init];
+        [_groupNode setLayerBacked:YES];
+        [self addSubnode:_groupNode];
+        
+        _groupTitleNode = [[ASTextNode2 alloc] init];
+        _groupTitleNode.attributedText = [self groupAttributedStringWithFontSize:16];
+        [self addSubnode:_groupTitleNode];
     }
     return self;
 }
 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize {
+    
+    self.groupNode.style.preferredSize = CGSizeMake(Width, 25);
+
+//    ASInsetLayoutSpec *insetSpec_group = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(0, 20, 0, 0) child:self.groupTitleNode];
+    
+    ASCenterLayoutSpec *centerSpec = [ASCenterLayoutSpec centerLayoutSpecWithCenteringOptions:ASCenterLayoutSpecCenteringY sizingOptions:ASCenterLayoutSpecSizingOptionMinimumY child:self.groupTitleNode];
+    
+    ASOverlayLayoutSpec *overlaySpec = [ASOverlayLayoutSpec overlayLayoutSpecWithChild:self.groupNode overlay:centerSpec];
+    
     ASStackLayoutSpec *stack1 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:6 justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[self.commentNode]];
     ASStackLayoutSpec *stack2 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:6 justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[self.likeNode, self.countNode]];
     ASStackLayoutSpec *stack3 = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal spacing:10 justifyContent:ASStackLayoutJustifyContentStart alignItems:ASStackLayoutAlignItemsCenter children:@[stack2, stack1]];
@@ -79,8 +105,10 @@
     
     
     ASStackLayoutSpec *stack6 = [ASStackLayoutSpec verticalStackLayoutSpec];
-    stack6.spacing = 15;
-    stack6.children = @[stack5, self.lineNode];
+//    stack6.spacing = 15;
+    self.lineNode.style.spacingBefore = 15;
+    self.lineNode.style.spacingAfter = 5;
+    stack6.children = @[stack5, self.lineNode, overlaySpec, self.bottmLineNode];
     
     ASInsetLayoutSpec *insetSpec = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(10, 10, 10, 10) child:stack6];
     return insetSpec;
@@ -125,6 +153,11 @@
 
 - (NSAttributedString *)nickAttributedStringWithFontSize:(CGFloat)size {
     return [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", self.model.user.username] attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:size],
+                                                                                                                               NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
+}
+
+- (NSAttributedString *)groupAttributedStringWithFontSize:(CGFloat)size {
+    return [[NSAttributedString alloc] initWithString:@"评论" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:size],
                                                                                                                                NSForegroundColorAttributeName: [UIColor darkGrayColor]}];
 }
 

@@ -57,7 +57,7 @@
         _contentNode.style.flexShrink = YES;
         _contentNode.style.flexGrow = YES;
         _contentNode.maximumNumberOfLines = 0;
-        _contentNode.userInteractionEnabled = YES;
+//        _contentNode.userInteractionEnabled = YES;
         _contentNode.attributedText = text;
         _contentNode.style.maxWidth = ASDimensionMakeWithPoints(Width - 70);
         [self addSubnode:_contentNode];
