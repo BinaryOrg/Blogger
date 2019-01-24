@@ -223,6 +223,10 @@ UITableViewDataSource
     [self.navigationController pushViewController:dynamicDetail animated:YES];
 }
 
+- (BOOL)tableNode:(ASTableNode *)tableNode shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
 -(ASTableNode *)tableNode {
     if (!_tableNode) {
         _tableNode = [[ASTableNode alloc] initWithStyle:UITableViewStylePlain];

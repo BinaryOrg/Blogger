@@ -88,6 +88,12 @@
     return node;
 }
 
+- (void)tableNode:(ASTableNode *)tableNode didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableNode deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSLog(@"HaHa");
+}
+
 - (void)clickLikeButton:(GODDynamicCommentNode *)node {
     if ([GODUserTool shared].user.id.length == 0) {//没有登录
         [self presentViewController:[[GODLoginTelephoneViewController alloc] init] animated:YES completion:nil];
