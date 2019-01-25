@@ -6,8 +6,6 @@
 //  Copyright © 2019 GodzzZZZ. All rights reserved.
 //
 
-
-
 @interface GODDynamicController : ASViewController
 
 @end

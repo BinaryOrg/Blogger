@@ -9,6 +9,7 @@
 #import "GODDynamicCommentNode.h"
 #import "GODSDKConfigKey.h"
 #import <DateTools/DateTools.h>
+#import "GODNotification.h"
 
 @interface GODDynamicCommentNode ()
 @property (nonatomic, strong) ASDisplayNode *lineNode;
@@ -123,7 +124,7 @@
     self.model.is_like = YES;
     self.countNode.attributedText = [self countAttributedStringWithFontSize:14];
     self.likeNode.image = [UIImage imageNamed:@"ic_messages_like_selected_20x20_"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"like" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:GODCommentLikeNotification object:nil];
 }
 
 - (void)comment {

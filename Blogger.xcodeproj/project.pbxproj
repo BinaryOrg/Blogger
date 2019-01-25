@@ -23,6 +23,7 @@
 		37F50AEE21F47ED000D6D152 /* NSMutableAttributedString+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AEC21F47ED000D6D152 /* NSMutableAttributedString+Chain.m */; };
 		37F50AF121F4809F00D6D152 /* UIView+LH.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AEF21F4809F00D6D152 /* UIView+LH.m */; };
 		45AA16F5998E7D8D7CCDE87C /* libPods-Blogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7466A141CD059734410289F3 /* libPods-Blogger.a */; };
+		4A29FB7821F9A14800283BC9 /* GODNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A29FB7721F9A14800283BC9 /* GODNotification.m */; };
 		4A8E71CD21F80C49002495CE /* GODDynamicDetailListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71CC21F80C49002495CE /* GODDynamicDetailListController.m */; };
 		4A8E71D021F80D64002495CE /* GODDynamicDetailNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71CF21F80D64002495CE /* GODDynamicDetailNode.m */; };
 		4A8E71D321F816ED002495CE /* GODDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71D221F816ED002495CE /* GODDetailModel.m */; };
@@ -88,6 +89,8 @@
 		37F50AED21F47ED000D6D152 /* NSMutableAttributedString+Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Chain.h"; sourceTree = "<group>"; };
 		37F50AEF21F4809F00D6D152 /* UIView+LH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LH.m"; sourceTree = "<group>"; };
 		37F50AF021F4809F00D6D152 /* UIView+LH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LH.h"; sourceTree = "<group>"; };
+		4A29FB7621F9A14800283BC9 /* GODNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODNotification.h; sourceTree = "<group>"; };
+		4A29FB7721F9A14800283BC9 /* GODNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODNotification.m; sourceTree = "<group>"; };
 		4A8E71CB21F80C49002495CE /* GODDynamicDetailListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicDetailListController.h; sourceTree = "<group>"; };
 		4A8E71CC21F80C49002495CE /* GODDynamicDetailListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDynamicDetailListController.m; sourceTree = "<group>"; };
 		4A8E71CE21F80D64002495CE /* GODDynamicDetailNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicDetailNode.h; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 			isa = PBXGroup;
 			children = (
 				5E1DB27221EE16DB009A477C /* GODDefine.h */,
+				4A29FB7621F9A14800283BC9 /* GODNotification.h */,
+				4A29FB7721F9A14800283BC9 /* GODNotification.m */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -700,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37F50ADF21F4790500D6D152 /* GODDynamicCellNode.m in Sources */,
+				4A29FB7821F9A14800283BC9 /* GODNotification.m in Sources */,
 				5E1DB28821EE1B42009A477C /* GODCard.m in Sources */,
 				37C0A08821F5C414000683B8 /* GODUserHeaderView.m in Sources */,
 				37D4818621F2F10300BB6B2A /* GODPostController.m in Sources */,

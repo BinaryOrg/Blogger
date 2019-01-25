@@ -28,9 +28,6 @@
     
     
     
-    
-    
-    
 //    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
 //    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
 //    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
