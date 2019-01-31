@@ -19,7 +19,7 @@
 #import "GODAdModel.h"
 
 #import "GODWebViewController.h"
-
+#import "GODSDKConfigKey.h"
 @implementation GODLaunchManager
 + (instancetype)sharedInstance {
     static GODLaunchManager *manager = nil;
@@ -39,16 +39,17 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     [XHLaunchAd setLaunchSourceType:SourceTypeLaunchScreen];
-    [XHLaunchAd setWaitDataDuration:3];
+    [XHLaunchAd setWaitDataDuration:5];
     
-    [MFNETWROK get:@"advertisement/" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+    [MFNETWROK get:@"advertisement" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+        NSLog(@"%@", result);
         if (![result[@"code"] integerValue]) {
             GODAdModel *model = [GODAdModel yy_modelWithJSON:result];
             //配置广告数据
             XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration new];
             imageAdconfiguration.duration = 5;
             imageAdconfiguration.frame = [UIScreen mainScreen].bounds;
-            imageAdconfiguration.imageNameOrURLString = model.urlString;
+            imageAdconfiguration.imageNameOrURLString = [NSString stringWithFormat:@"%@%@",BASE_AVATAR_URL, model.urlString];
             imageAdconfiguration.GIFImageCycleOnce = NO;
             imageAdconfiguration.imageOption = XHLaunchAdImageCacheInBackground;
             imageAdconfiguration.contentMode = UIViewContentModeScaleAspectFill;
@@ -58,6 +59,10 @@
             imageAdconfiguration.showEnterForeground = NO;
             //显示开屏广告
             [XHLaunchAd imageAdWithImageAdConfiguration:imageAdconfiguration delegate:self];
+        }else {
+            XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration defaultConfiguration];
+            imageAdconfiguration.imageNameOrURLString = @"ad.jpg";
+            [XHLaunchAd imageAdWithImageAdConfiguration:imageAdconfiguration delegate:self];
         }
     } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
         XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration defaultConfiguration];
@@ -65,14 +70,66 @@
         [XHLaunchAd imageAdWithImageAdConfiguration:imageAdconfiguration delegate:self];
     }];
 
-    [MFNETWROK get:@"launch/" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
-        if (![result[@"code"] integerValue]) {
-            GODWebViewController *webController = [[GODWebViewController alloc] init];
-            webController.urlString = result[@"urlString"];
-            window.rootViewController = webController;
-            window.backgroundColor = [UIColor whiteColor];
-            [window makeKeyAndVisible];
-        }else {
+    [MFNETWROK get:@"launch" params:nil success:^(id result, NSInteger statusCode, NSURLSessionDataTask *task) {
+        NSLog(@"%@", result);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (![result[@"code"] integerValue]) {
+                
+                if (![result[@"type"] integerValue]) {
+                    GODWebViewController *webController = [[GODWebViewController alloc] init];
+                    webController.urlString = result[@"urlString"];
+                    UINavigationController *webNavi = [[UINavigationController alloc] initWithRootViewController:webController];
+                    window.rootViewController = webNavi;
+                    window.backgroundColor = [UIColor whiteColor];
+                    [window makeKeyAndVisible];
+                }else {
+                    GODMainViewController *main = [[GODMainViewController alloc] init];
+                    GODMusicViewController *music = [[GODMusicViewController alloc] init];
+                    GODPersonViewController *person = [[GODPersonViewController alloc] init];
+                    GODDynamicController *dynamic = [[GODDynamicController alloc] init];
+                    UINavigationController *mainNavi = [[UINavigationController alloc] initWithRootViewController:main];
+                    UINavigationController *personNavi = [[UINavigationController alloc] initWithRootViewController:person];
+                    UINavigationController *musicNavi = [[UINavigationController alloc] initWithRootViewController:music];
+                    UINavigationController *dynamicNavi = [[UINavigationController alloc] initWithRootViewController:dynamic];
+                    
+                    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+                    tabBarController.viewControllers = @[
+                                                         mainNavi,
+                                                         musicNavi,
+                                                         dynamicNavi,
+                                                         personNavi
+                                                         ];
+                    window.rootViewController = tabBarController;
+                    
+                    window.backgroundColor = [UIColor whiteColor];
+                    [window makeKeyAndVisible];
+                }
+                
+            }else {
+                GODMainViewController *main = [[GODMainViewController alloc] init];
+                GODMusicViewController *music = [[GODMusicViewController alloc] init];
+                GODPersonViewController *person = [[GODPersonViewController alloc] init];
+                GODDynamicController *dynamic = [[GODDynamicController alloc] init];
+                UINavigationController *mainNavi = [[UINavigationController alloc] initWithRootViewController:main];
+                UINavigationController *personNavi = [[UINavigationController alloc] initWithRootViewController:person];
+                UINavigationController *musicNavi = [[UINavigationController alloc] initWithRootViewController:music];
+                UINavigationController *dynamicNavi = [[UINavigationController alloc] initWithRootViewController:dynamic];
+                
+                UITabBarController *tabBarController = [[UITabBarController alloc] init];
+                tabBarController.viewControllers = @[
+                                                     mainNavi,
+                                                     musicNavi,
+                                                     dynamicNavi,
+                                                     personNavi
+                                                     ];
+                window.rootViewController = tabBarController;
+                
+                window.backgroundColor = [UIColor whiteColor];
+                [window makeKeyAndVisible];
+            }
+        });
+    } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             GODMainViewController *main = [[GODMainViewController alloc] init];
             GODMusicViewController *music = [[GODMusicViewController alloc] init];
             GODPersonViewController *person = [[GODPersonViewController alloc] init];
@@ -93,28 +150,7 @@
             
             window.backgroundColor = [UIColor whiteColor];
             [window makeKeyAndVisible];
-        }
-    } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {
-        GODMainViewController *main = [[GODMainViewController alloc] init];
-        GODMusicViewController *music = [[GODMusicViewController alloc] init];
-        GODPersonViewController *person = [[GODPersonViewController alloc] init];
-        GODDynamicController *dynamic = [[GODDynamicController alloc] init];
-        UINavigationController *mainNavi = [[UINavigationController alloc] initWithRootViewController:main];
-        UINavigationController *personNavi = [[UINavigationController alloc] initWithRootViewController:person];
-        UINavigationController *musicNavi = [[UINavigationController alloc] initWithRootViewController:music];
-        UINavigationController *dynamicNavi = [[UINavigationController alloc] initWithRootViewController:dynamic];
-        
-        UITabBarController *tabBarController = [[UITabBarController alloc] init];
-        tabBarController.viewControllers = @[
-                                             mainNavi,
-                                             musicNavi,
-                                             dynamicNavi,
-                                             personNavi
-                                             ];
-        window.rootViewController = tabBarController;
-        
-        window.backgroundColor = [UIColor whiteColor];
-        [window makeKeyAndVisible];
+        });
     }];
 }
 @end
