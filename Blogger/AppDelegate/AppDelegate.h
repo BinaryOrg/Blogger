@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *appKey = @"b3fb919fbefed16da453a064";
+static NSString *appKey = @"7e8ed3b427df382fe2fbe8a4";
 static NSString *channel = @"App Store";
 static BOOL isProduction = NO;
 

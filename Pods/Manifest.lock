@@ -17,8 +17,12 @@ PODS:
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - FFPopup (1.0.0)
+  - FLAnimatedImage (1.0.12)
   - FreeStreamer (3.8.3):
     - Reachability (~> 3.0)
+  - JCore (1.2.6)
+  - JPush (3.1.2):
+    - JCore (~> 1.2.6)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MFCategory (0.2.1)
@@ -313,6 +317,8 @@ PODS:
     - PINRemoteImage/iOS (= 3.0.0-beta.13)
     - PINRemoteImage/PINCache
     - Texture/Core
+  - XHLaunchAd (3.9.8):
+    - FLAnimatedImage (~> 1.0.12)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
@@ -328,6 +334,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - FFPopup
   - FreeStreamer (~> 3.8.2)
+  - JPush
   - Masonry
   - MBProgressHUD
   - MFExtractColor
@@ -338,6 +345,7 @@ DEPENDENCIES:
   - mob_smssdk
   - QMUIKit
   - Texture
+  - XHLaunchAd
   - YYWebImage
 
 SPEC REPOS:
@@ -346,7 +354,10 @@ SPEC REPOS:
     - DateTools
     - DZNEmptyDataSet
     - FFPopup
+    - FLAnimatedImage
     - FreeStreamer
+    - JCore
+    - JPush
     - Masonry
     - MBProgressHUD
     - MFCategory
@@ -364,6 +375,7 @@ SPEC REPOS:
     - Reachability
     - RealReachability
     - Texture
+    - XHLaunchAd
     - YYCache
     - YYImage
     - YYWebImage
@@ -373,7 +385,10 @@ SPEC CHECKSUMS:
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FFPopup: f1a9c2bb1df9d9cd254f15081e74112d9ccb6969
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FreeStreamer: b205b0bf6a2e7855f935369145498f930eb27cac
+  JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
+  JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MFCategory: 82ca2cf2d9d05540fc64224a85dcfa9ff31c1d63
@@ -391,10 +406,11 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   RealReachability: a8c483900986a0f3305733961effbfbb00637a02
   Texture: 9d7e38965cf22ccd7cd9c249dd78b3f14e70ab6c
+  XHLaunchAd: 45048592af01aa501c9d2d0c45e95ca74c4d0596
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: fd47f1045184dc6e399c69f0747c8cdb4c3d683a
+PODFILE CHECKSUM: 1d26ec90d89ed6b141ee3682f459d7bb6cfd2999
 
 COCOAPODS: 1.5.3
