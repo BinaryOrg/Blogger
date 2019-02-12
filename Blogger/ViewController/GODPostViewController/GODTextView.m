@@ -3,7 +3,7 @@
 //  小灯塔
 //
 //  Created by MakerYang on 2018/3/16.
-//  Copyright © 2018年 TheTiger. All rights reserved.
+//  Copyright © 2018年 Maker. All rights reserved.
 //
 
 #import "GODTextView.h"

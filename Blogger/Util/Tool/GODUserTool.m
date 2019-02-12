@@ -2,8 +2,8 @@
 //  GODUserTool.m
 //  小灯塔
 //
-//  Created by 李小南 on 2018/4/4.
-//  Copyright © 2018年 TheTiger. All rights reserved.
+//  Created by Maker on 2018/4/4.
+//  Copyright © 2018年 Maker. All rights reserved.
 //
 
 #import "GODUserTool.h"

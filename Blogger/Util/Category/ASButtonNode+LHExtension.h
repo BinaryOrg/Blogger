@@ -3,7 +3,7 @@
 //  小灯塔
 //
 //  Created by liuhao on 2018/11/26.
-//  Copyright © 2018 TheTiger. All rights reserved.
+//  Copyright © 2018 Maker. All rights reserved.
 //
 
 

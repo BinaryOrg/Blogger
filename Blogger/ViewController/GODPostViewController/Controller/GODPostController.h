@@ -1,9 +1,9 @@
 //
 //  GODPostController.h
-//  按钮测试
+//  Blogger
 //
-//  Created by Maker on 2019/1/19.
-//  Copyright © 2019 MakerYang.com. All rights reserved.
+//  Created by Maker on 2019/2/12.
+//  Copyright © 2019 GodzzZZZ. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

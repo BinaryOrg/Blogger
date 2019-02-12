@@ -3,7 +3,7 @@
 //  小灯塔
 //
 //  Created by Hasten on 2018/2/27.
-//  Copyright © 2018年 TheTiger. All rights reserved.
+//  Copyright © 2018年 Maker. All rights reserved.
 //
 
 #import "UIView+LH.h"

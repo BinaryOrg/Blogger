@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3704AB68221261D500D07862 /* GODPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3704AB67221261D500D07862 /* GODPostController.m */; };
+		3704AB6B221264A900D07862 /* GODTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3704AB69221264A900D07862 /* GODTextView.m */; };
 		37C0A08821F5C414000683B8 /* GODUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0A08721F5C414000683B8 /* GODUserHeaderView.m */; };
-		37D4818621F2F10300BB6B2A /* GODPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4818521F2F10300BB6B2A /* GODPostController.m */; };
-		37D4818921F2F11900BB6B2A /* GODTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4818721F2F11900BB6B2A /* GODTextView.m */; };
 		37D4819121F3039000BB6B2A /* GODLoginTelephoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819021F3039000BB6B2A /* GODLoginTelephoneViewController.m */; };
 		37D4819421F3044400BB6B2A /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819321F3044400BB6B2A /* NSString+Regex.m */; };
 		37D4819B21F305BB00BB6B2A /* GODUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819A21F305BB00BB6B2A /* GODUserModel.m */; };
@@ -61,12 +61,12 @@
 
 /* Begin PBXFileReference section */
 		2D417275E62C96934989F346 /* Pods-Blogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blogger/Pods-Blogger.release.xcconfig"; sourceTree = "<group>"; };
+		3704AB66221261D500D07862 /* GODPostController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODPostController.h; sourceTree = "<group>"; };
+		3704AB67221261D500D07862 /* GODPostController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODPostController.m; sourceTree = "<group>"; };
+		3704AB69221264A900D07862 /* GODTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODTextView.m; sourceTree = "<group>"; };
+		3704AB6A221264A900D07862 /* GODTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODTextView.h; sourceTree = "<group>"; };
 		37C0A08621F5C414000683B8 /* GODUserHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODUserHeaderView.h; sourceTree = "<group>"; };
 		37C0A08721F5C414000683B8 /* GODUserHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODUserHeaderView.m; sourceTree = "<group>"; };
-		37D4818421F2F10200BB6B2A /* GODPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODPostController.h; sourceTree = "<group>"; };
-		37D4818521F2F10300BB6B2A /* GODPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODPostController.m; sourceTree = "<group>"; };
-		37D4818721F2F11900BB6B2A /* GODTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODTextView.m; sourceTree = "<group>"; };
-		37D4818821F2F11900BB6B2A /* GODTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODTextView.h; sourceTree = "<group>"; };
 		37D4818A21F2F1AE00BB6B2A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		37D4818F21F3038F00BB6B2A /* GODLoginTelephoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODLoginTelephoneViewController.h; sourceTree = "<group>"; };
 		37D4819021F3039000BB6B2A /* GODLoginTelephoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODLoginTelephoneViewController.m; sourceTree = "<group>"; };
@@ -190,9 +190,9 @@
 		37D4818021F2F0DB00BB6B2A /* GODPostViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3704AB6A221264A900D07862 /* GODTextView.h */,
+				3704AB69221264A900D07862 /* GODTextView.m */,
 				37D4818121F2F0DB00BB6B2A /* Controller */,
-				37D4818821F2F11900BB6B2A /* GODTextView.h */,
-				37D4818721F2F11900BB6B2A /* GODTextView.m */,
 			);
 			path = GODPostViewController;
 			sourceTree = "<group>";
@@ -200,8 +200,8 @@
 		37D4818121F2F0DB00BB6B2A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				37D4818421F2F10200BB6B2A /* GODPostController.h */,
-				37D4818521F2F10300BB6B2A /* GODPostController.m */,
+				3704AB66221261D500D07862 /* GODPostController.h */,
+				3704AB67221261D500D07862 /* GODPostController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -739,11 +739,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3704AB6B221264A900D07862 /* GODTextView.m in Sources */,
 				37F50ADF21F4790500D6D152 /* GODDynamicCellNode.m in Sources */,
 				4A29FB7821F9A14800283BC9 /* GODNotification.m in Sources */,
 				5E1DB28821EE1B42009A477C /* GODCard.m in Sources */,
 				37C0A08821F5C414000683B8 /* GODUserHeaderView.m in Sources */,
-				37D4818621F2F10300BB6B2A /* GODPostController.m in Sources */,
 				5E1DB27A21EE17EF009A477C /* UIColor+CustomColors.m in Sources */,
 				5E1DB2B821EF828C009A477C /* GODMusicTableViewCell.m in Sources */,
 				37D4819121F3039000BB6B2A /* GODLoginTelephoneViewController.m in Sources */,
@@ -762,8 +762,8 @@
 				5E1DB26F21EE15E0009A477C /* GODLaunchManager.m in Sources */,
 				5E1DB2B021EF7D96009A477C /* GODMusicViewController.m in Sources */,
 				37D4819F21F3070400BB6B2A /* GODUserTool.m in Sources */,
-				37D4818921F2F11900BB6B2A /* GODTextView.m in Sources */,
 				5E1DB26421EE06D7009A477C /* main.m in Sources */,
+				3704AB68221261D500D07862 /* GODPostController.m in Sources */,
 				37F50AE221F4794800D6D152 /* GODDynamicModel.m in Sources */,
 				37D4819B21F305BB00BB6B2A /* GODUserModel.m in Sources */,
 				5E1DB28B21EE1BC8009A477C /* GODTableCard.m in Sources */,

@@ -200,7 +200,7 @@ UINavigationControllerDelegate
             };
             [self presentViewController:vc animated:YES completion:nil];
         }else {
-            [self presentViewController:[[GODPostController alloc] init] animated:YES completion:nil];
+            [self.navigationController pushViewController:[[GODPostController alloc] init] animated:YES];
         }
     }
     else {
