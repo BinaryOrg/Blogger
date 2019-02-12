@@ -38,8 +38,10 @@
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     _cornerRadius = cornerRadius;
-    self.networkImageNode.cornerRadius = cornerRadius;
-    self.imageNode.cornerRadius = cornerRadius;
+//    self.networkImageNode.cornerRadius = cornerRadius;
+//    self.imageNode.cornerRadius = cornerRadius;
+    self.networkImageNode.imageModificationBlock = ASImageNodeRoundBorderModificationBlock(cornerRadius, [UIColor clearColor]);
+    self.imageNode.imageModificationBlock = ASImageNodeRoundBorderModificationBlock(cornerRadius, [UIColor clearColor]);
 }
 
 - (void)setPlaceholderColor:(UIColor *)placeholderColor {

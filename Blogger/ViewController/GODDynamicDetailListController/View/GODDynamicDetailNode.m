@@ -29,7 +29,7 @@
         self.profilePhotoNode.URL = [NSURL URLWithString:model.user.avatar.length ? [NSString stringWithFormat:@"%@%@", BASE_AVATAR_URL, model.user.avatar] : @"http://a3.att.hudong.com/58/63/01300542846491148697637760361.jpg"];
         [self addSubnode:self.profilePhotoNode];
         self.profilePhotoNode.style.preferredSize = CGSizeMake(22, 22);
-        self.profilePhotoNode.cornerRadius = 11;
+        self.profilePhotoNode.cornerRadius = 3;
         self.summaryNode = [[ASTextNode2 alloc] init];
         self.summaryNode.attributedText = [self summaryAttributedStringWithFontSize:16];
         [self addSubnode:self.summaryNode];

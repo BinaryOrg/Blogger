@@ -60,9 +60,9 @@
             GODDetailModel *model = [GODDetailModel yy_modelWithJSON:dic];
             [list addObject:model];
         }
-        [list sortUsingComparator:^NSComparisonResult(GODDetailModel *obj1, GODDetailModel *obj2) {
-            return obj1.date < obj2.date;
-        }];
+//        [list sortUsingComparator:^NSComparisonResult(GODDetailModel *obj1, GODDetailModel *obj2) {
+//            return obj1.date < obj2.date;
+//        }];
         [self.dataList addObjectsFromArray:list];
         [self.tableNode reloadData];
     } failure:^(NSError *error, NSInteger statusCode, NSURLSessionDataTask *task) {

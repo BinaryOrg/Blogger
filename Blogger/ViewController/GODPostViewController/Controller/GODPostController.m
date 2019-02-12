@@ -8,7 +8,7 @@
 
 #import "GODPostController.h"
 #import "GODTextView.h"
-
+#import "GODNotification.h"
 @interface GODPostController ()
 
 @property (nonatomic, strong) GODTextView *textView;
@@ -92,6 +92,9 @@
             NSLog(@"%@", result);
             [MFHUDManager dismiss];
             if ([result[@"code"] integerValue] == 0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:GODCommentLikeNotification object:nil];
+                });
                 [self dismissViewControllerAnimated:YES completion:nil];
             }else {
                 [MFHUDManager showError:@"发布失败"];

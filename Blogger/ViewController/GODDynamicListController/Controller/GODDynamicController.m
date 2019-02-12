@@ -13,6 +13,7 @@
 #import "GODLoginTelephoneViewController.h"
 #import <QMUIKit/QMUIKit.h>
 #import "GODDynamicDetailListController.h"
+#import "GODNotification.h"
 
 @interface QDPopupContainerView : QMUIPopupContainerView
 @property (nonatomic ,strong) UITableView *tableView;
@@ -100,7 +101,7 @@ UITableViewDataSource
     self.title = @"动态";
     [self setupUI];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewDidTriggerHeaderRefresh) name:@"like" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewDidTriggerHeaderRefresh) name:GODCommentLikeNotification object:nil];
     [self loadData:NO];
 
 }

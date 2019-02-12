@@ -11,9 +11,6 @@
 #import <MFHUDManager/MFHUDManager.h>
 #import "GODSDKConfigKey.h"
 @interface GODSDKManager()
-<
-MFNetworkManagerDelegate
->
 @end
 @implementation GODSDKManager
 + (instancetype)sharedInstance {
@@ -33,17 +30,17 @@ MFNetworkManagerDelegate
     [MFHUDManager setHUDType:MFHUDTypeNormal];
     [MFNETWROK startMonitorNetworkType];
     MFNETWROK.baseURL = BASE_URL;
-    MFNETWROK.delegate = self;
+//    MFNETWROK.delegate = self;
 }
 
-- (void)networkManager:(MFNetworkManager *)manager didConnectedWithPrompt:(NSString *)prompt {
-    if (![MFHUDManager isShowing]) {
-        [MFHUDManager showWarning:prompt];
-    }
-}
-- (void)networkManager:(MFNetworkManager *)manager disDisConnectedWithPrompt:(NSString *)prompt {
-    if (![MFHUDManager isShowing]) {
-        [MFHUDManager showError:prompt];
-    }
-}
+//- (void)networkManager:(MFNetworkManager *)manager didConnectedWithPrompt:(NSString *)prompt {
+//    if (![MFHUDManager isShowing]) {
+//        [MFHUDManager showWarning:prompt];
+//    }
+//}
+//- (void)networkManager:(MFNetworkManager *)manager disDisConnectedWithPrompt:(NSString *)prompt {
+//    if (![MFHUDManager isShowing]) {
+//        [MFHUDManager showError:prompt];
+//    }
+//}
 @end
