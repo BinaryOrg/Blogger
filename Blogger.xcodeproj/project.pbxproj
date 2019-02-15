@@ -24,6 +24,12 @@
 		37F50AF121F4809F00D6D152 /* UIView+LH.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F50AEF21F4809F00D6D152 /* UIView+LH.m */; };
 		45AA16F5998E7D8D7CCDE87C /* libPods-Blogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7466A141CD059734410289F3 /* libPods-Blogger.a */; };
 		4A29FB7821F9A14800283BC9 /* GODNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A29FB7721F9A14800283BC9 /* GODNotification.m */; };
+		4A8E33392216449F00EB217A /* ABCAutoCodingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E33372216449F00EB217A /* ABCAutoCodingObject.m */; };
+		4A8E333C221644BF00EB217A /* ABCNotificationName.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E333B221644BF00EB217A /* ABCNotificationName.m */; };
+		4A8E333F2216464B00EB217A /* QiDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E333D2216464B00EB217A /* QiDataModel.m */; };
+		4A8E33442216465600EB217A /* QiCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E33412216465500EB217A /* QiCardView.m */; };
+		4A8E33452216465600EB217A /* QiCardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E33422216465500EB217A /* QiCardViewCell.m */; };
+		4A8E33482216466900EB217A /* QiCardItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E33472216466800EB217A /* QiCardItemCell.m */; };
 		4A8E71CD21F80C49002495CE /* GODDynamicDetailListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71CC21F80C49002495CE /* GODDynamicDetailListController.m */; };
 		4A8E71D021F80D64002495CE /* GODDynamicDetailNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71CF21F80D64002495CE /* GODDynamicDetailNode.m */; };
 		4A8E71D321F816ED002495CE /* GODDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E71D221F816ED002495CE /* GODDetailModel.m */; };
@@ -51,7 +57,6 @@
 		5E1DB2A221EED227009A477C /* GODAvatarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2A121EED227009A477C /* GODAvatarTableViewCell.m */; };
 		5E1DB2A521EED50D009A477C /* GODConfigurationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2A421EED50D009A477C /* GODConfigurationTableViewCell.m */; };
 		5E1DB2A821EEE35E009A477C /* GODErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2A721EEE35E009A477C /* GODErrorView.m */; };
-		5E1DB2AC21EEFE42009A477C /* GODScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2AB21EEFE42009A477C /* GODScoreViewController.m */; };
 		5E1DB2B021EF7D96009A477C /* GODMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2AF21EF7D95009A477C /* GODMusicViewController.m */; };
 		5E1DB2B521EF81B9009A477C /* GODMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2B421EF81B9009A477C /* GODMusicModel.m */; };
 		5E1DB2B821EF828C009A477C /* GODMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DB2B721EF828C009A477C /* GODMusicTableViewCell.m */; };
@@ -94,6 +99,19 @@
 		37F50AF021F4809F00D6D152 /* UIView+LH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LH.h"; sourceTree = "<group>"; };
 		4A29FB7621F9A14800283BC9 /* GODNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODNotification.h; sourceTree = "<group>"; };
 		4A29FB7721F9A14800283BC9 /* GODNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODNotification.m; sourceTree = "<group>"; };
+		4A8E33372216449F00EB217A /* ABCAutoCodingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCAutoCodingObject.m; sourceTree = "<group>"; };
+		4A8E33382216449F00EB217A /* ABCAutoCodingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCAutoCodingObject.h; sourceTree = "<group>"; };
+		4A8E333A221644BE00EB217A /* ABCNotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCNotificationName.h; sourceTree = "<group>"; };
+		4A8E333B221644BF00EB217A /* ABCNotificationName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCNotificationName.m; sourceTree = "<group>"; };
+		4A8E333D2216464B00EB217A /* QiDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiDataModel.m; sourceTree = "<group>"; };
+		4A8E333E2216464B00EB217A /* QiDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiDataModel.h; sourceTree = "<group>"; };
+		4A8E33402216465500EB217A /* QiCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiCardView.h; sourceTree = "<group>"; };
+		4A8E33412216465500EB217A /* QiCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiCardView.m; sourceTree = "<group>"; };
+		4A8E33422216465500EB217A /* QiCardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiCardViewCell.m; sourceTree = "<group>"; };
+		4A8E33432216465600EB217A /* QiCardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiCardViewCell.h; sourceTree = "<group>"; };
+		4A8E33462216466800EB217A /* QiCardItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiCardItemCell.h; sourceTree = "<group>"; };
+		4A8E33472216466800EB217A /* QiCardItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiCardItemCell.m; sourceTree = "<group>"; };
+		4A8E3349221646CA00EB217A /* ABCMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCMacro.h; sourceTree = "<group>"; };
 		4A8E71CB21F80C49002495CE /* GODDynamicDetailListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicDetailListController.h; sourceTree = "<group>"; };
 		4A8E71CC21F80C49002495CE /* GODDynamicDetailListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODDynamicDetailListController.m; sourceTree = "<group>"; };
 		4A8E71CE21F80D64002495CE /* GODDynamicDetailNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODDynamicDetailNode.h; sourceTree = "<group>"; };
@@ -151,8 +169,6 @@
 		5E1DB2A421EED50D009A477C /* GODConfigurationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODConfigurationTableViewCell.m; sourceTree = "<group>"; };
 		5E1DB2A621EEE35E009A477C /* GODErrorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODErrorView.h; sourceTree = "<group>"; };
 		5E1DB2A721EEE35E009A477C /* GODErrorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODErrorView.m; sourceTree = "<group>"; };
-		5E1DB2AA21EEFE42009A477C /* GODScoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODScoreViewController.h; sourceTree = "<group>"; };
-		5E1DB2AB21EEFE42009A477C /* GODScoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODScoreViewController.m; sourceTree = "<group>"; };
 		5E1DB2AE21EF7D95009A477C /* GODMusicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODMusicViewController.h; sourceTree = "<group>"; };
 		5E1DB2AF21EF7D95009A477C /* GODMusicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODMusicViewController.m; sourceTree = "<group>"; };
 		5E1DB2B321EF81B9009A477C /* GODMusicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODMusicModel.h; sourceTree = "<group>"; };
@@ -284,6 +300,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4A8E33362216445300EB217A /* UnuseCode */ = {
+			isa = PBXGroup;
+			children = (
+				4A8E3349221646CA00EB217A /* ABCMacro.h */,
+				4A8E33462216466800EB217A /* QiCardItemCell.h */,
+				4A8E33472216466800EB217A /* QiCardItemCell.m */,
+				4A8E33402216465500EB217A /* QiCardView.h */,
+				4A8E33412216465500EB217A /* QiCardView.m */,
+				4A8E33432216465600EB217A /* QiCardViewCell.h */,
+				4A8E33422216465500EB217A /* QiCardViewCell.m */,
+				4A8E333E2216464B00EB217A /* QiDataModel.h */,
+				4A8E333D2216464B00EB217A /* QiDataModel.m */,
+				4A8E333A221644BE00EB217A /* ABCNotificationName.h */,
+				4A8E333B221644BF00EB217A /* ABCNotificationName.m */,
+				4A8E33382216449F00EB217A /* ABCAutoCodingObject.h */,
+				4A8E33372216449F00EB217A /* ABCAutoCodingObject.m */,
+			);
+			path = UnuseCode;
+			sourceTree = "<group>";
+		};
 		4A8E71C421F80BD2002495CE /* GODDynamicDetailListController */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +398,7 @@
 		5E1DB25321EE06D7009A477C /* Blogger */ = {
 			isa = PBXGroup;
 			children = (
+				4A8E33362216445300EB217A /* UnuseCode */,
 				4A9CB84F2202C6600061FB4D /* Blogger.entitlements */,
 				5E1DB28021EE1A99009A477C /* ViewController */,
 				5E1DB27021EE1697009A477C /* Util */,
@@ -468,7 +505,6 @@
 				37D4818021F2F0DB00BB6B2A /* GODPostViewController */,
 				5E4E0D1521F0580F009833BF /* GODBackgroundViewController */,
 				5E1DB2AD21EF7D51009A477C /* GODMusicViewController */,
-				5E1DB2A921EEFE20009A477C /* GODScoreViewController */,
 				5E1DB29B21EED104009A477C /* GODPersonViewController */,
 				5E1DB28121EE1AA0009A477C /* GODMainViewController */,
 			);
@@ -543,15 +579,6 @@
 				37C0A08721F5C414000683B8 /* GODUserHeaderView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		5E1DB2A921EEFE20009A477C /* GODScoreViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5E1DB2AA21EEFE42009A477C /* GODScoreViewController.h */,
-				5E1DB2AB21EEFE42009A477C /* GODScoreViewController.m */,
-			);
-			path = GODScoreViewController;
 			sourceTree = "<group>";
 		};
 		5E1DB2AD21EF7D51009A477C /* GODMusicViewController */ = {
@@ -744,9 +771,11 @@
 				4A29FB7821F9A14800283BC9 /* GODNotification.m in Sources */,
 				5E1DB28821EE1B42009A477C /* GODCard.m in Sources */,
 				37C0A08821F5C414000683B8 /* GODUserHeaderView.m in Sources */,
+				4A8E333F2216464B00EB217A /* QiDataModel.m in Sources */,
 				5E1DB27A21EE17EF009A477C /* UIColor+CustomColors.m in Sources */,
 				5E1DB2B821EF828C009A477C /* GODMusicTableViewCell.m in Sources */,
 				37D4819121F3039000BB6B2A /* GODLoginTelephoneViewController.m in Sources */,
+				4A8E33452216465600EB217A /* QiCardViewCell.m in Sources */,
 				37F50AE521F47BFA00D6D152 /* GODToolNode.m in Sources */,
 				5E1DB28E21EE1C06009A477C /* GODBlogTableViewCell.m in Sources */,
 				4A9CB84E2202C00C0061FB4D /* GODWebViewController.m in Sources */,
@@ -760,11 +789,14 @@
 				37F50AE821F47D0200D6D152 /* NSMutableDictionary+Attributes.m in Sources */,
 				5E1DB2B521EF81B9009A477C /* GODMusicModel.m in Sources */,
 				5E1DB26F21EE15E0009A477C /* GODLaunchManager.m in Sources */,
+				4A8E33442216465600EB217A /* QiCardView.m in Sources */,
 				5E1DB2B021EF7D96009A477C /* GODMusicViewController.m in Sources */,
 				37D4819F21F3070400BB6B2A /* GODUserTool.m in Sources */,
+				4A8E33482216466900EB217A /* QiCardItemCell.m in Sources */,
 				5E1DB26421EE06D7009A477C /* main.m in Sources */,
 				3704AB68221261D500D07862 /* GODPostController.m in Sources */,
 				37F50AE221F4794800D6D152 /* GODDynamicModel.m in Sources */,
+				4A8E33392216449F00EB217A /* ABCAutoCodingObject.m in Sources */,
 				37D4819B21F305BB00BB6B2A /* GODUserModel.m in Sources */,
 				5E1DB28B21EE1BC8009A477C /* GODTableCard.m in Sources */,
 				5E1DB29A21EE25F7009A477C /* YYClassInfo.m in Sources */,
@@ -780,9 +812,9 @@
 				4A8E71CD21F80C49002495CE /* GODDynamicDetailListController.m in Sources */,
 				5E1DB2A521EED50D009A477C /* GODConfigurationTableViewCell.m in Sources */,
 				37F50AEE21F47ED000D6D152 /* NSMutableAttributedString+Chain.m in Sources */,
-				5E1DB2AC21EEFE42009A477C /* GODScoreViewController.m in Sources */,
 				5E1DB2A821EEE35E009A477C /* GODErrorView.m in Sources */,
 				5E4E0D1821F05824009833BF /* GODBackgroundViewController.m in Sources */,
+				4A8E333C221644BF00EB217A /* ABCNotificationName.m in Sources */,
 				4A8E71D921F83A82002495CE /* GODDynamicCommentNode.m in Sources */,
 				4A8E71D621F82BD3002495CE /* NetworkImageNode.m in Sources */,
 			);
