@@ -13,6 +13,7 @@
 #import "GODSDKConfigKey.h"
 #import <MFHUDManager/MFHUDManager.h>
 #import <UserNotifications/UserNotifications.h>
+#import <AVOSCloud/AVOSCloud.h>
 @interface AppDelegate ()
 <
 JPUSHRegisterDelegate
@@ -23,6 +24,11 @@ JPUSHRegisterDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    [AVOSCloud setApplicationId:@"l1NXJfT2CaNlAWEafzM533Xp-gzGzoHsz" clientKey:@"6DkL9slHraowk55xAVW1AiiL"];
+
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [[GODSDKManager sharedInstance] launchInWindow:self.window];
     [[GODLaunchManager sharedInstance] launchInWindow:self.window];
@@ -37,6 +43,9 @@ JPUSHRegisterDelegate
     //自定义消息，目前不用
 //    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 //    [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
+    
+    
+    
     return YES;
 }
 

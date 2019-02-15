@@ -14,6 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - AVOSCloud (11.4.9)
+  - AVOSCloudIM (11.4.9):
+    - AVOSCloud (= 11.4.9)
+    - AVOSCloudIM/_ARC (= 11.4.9)
+    - AVOSCloudIM/_NOARC (= 11.4.9)
+  - AVOSCloudIM/_ARC (11.4.9):
+    - AVOSCloud (= 11.4.9)
+    - AVOSCloudIM/_NOARC (= 11.4.9)
+  - AVOSCloudIM/_NOARC (11.4.9):
+    - AVOSCloud (= 11.4.9)
   - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - FFPopup (1.0.0)
@@ -330,6 +340,8 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
+  - AVOSCloud
+  - AVOSCloudIM
   - DateTools
   - DZNEmptyDataSet
   - FFPopup
@@ -351,6 +363,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - AVOSCloud
+    - AVOSCloudIM
     - DateTools
     - DZNEmptyDataSet
     - FFPopup
@@ -382,6 +396,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AVOSCloud: 1ad969db6e24c41ae1788d68698255d853883069
+  AVOSCloudIM: 712144be9ee5428c0bf895cf65954a0791b8364b
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FFPopup: f1a9c2bb1df9d9cd254f15081e74112d9ccb6969
@@ -411,6 +427,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 1d26ec90d89ed6b141ee3682f459d7bb6cfd2999
+PODFILE CHECKSUM: b91f590763c12de3562aecbfe52cfd49b22d061b
 
 COCOAPODS: 1.5.3
