@@ -14,7 +14,6 @@
 #import "UIColor+CustomColors.h"
 #import "GODAvatarTableViewCell.h"
 #import "GODConfigurationTableViewCell.h"
-#import "GODScoreViewController.h"
 #import "GODPostController.h"
 #import "GODLoginTelephoneViewController.h"
 #import "GODUserHeaderView.h"
@@ -40,7 +39,6 @@ UINavigationControllerDelegate
     if (!_textList) {
         _textList = @[
                       @"清除缓存",
-                      @"用户评价",
                       @"联系作者",
                       @"发布内容",
                       ];
@@ -178,9 +176,6 @@ UINavigationControllerDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 1) {
-        [self presentViewController:[[GODScoreViewController alloc] init] animated:YES completion:nil];
-    }
-    else if (indexPath.row == 2) {
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         pasteboard.string = @"Shmily_liuyy";
         [MFHUDManager showSuccess:@"作者微信号已成功复制到剪切板！"];
@@ -192,7 +187,7 @@ UINavigationControllerDelegate
             }
         });
     }
-    else if (indexPath.row == 3) {
+    else if (indexPath.row == 2) {
         if ([GODUserTool shared].user.id.length == 0) {//没有登录
             GODLoginTelephoneViewController *vc = [[GODLoginTelephoneViewController alloc] init];
             vc.didLoginSuccessBlock = ^{
