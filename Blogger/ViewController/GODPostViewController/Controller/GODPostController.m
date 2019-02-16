@@ -16,6 +16,22 @@
 
 @implementation GODPostController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.textView becomeFirstResponder];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        UIImage *image = [UIImage imageNamed:@"post"];
+        UIImage *selectedImage = [[UIImage imageNamed:@"post"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"发布" image:image selectedImage:selectedImage];
+        [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -35,6 +51,7 @@
 
 
 - (void)clickPost {
+    [self.textView resignFirstResponder];
     if (self.textView.text.length == 0) {
         [MFHUDManager showWarning:@"请输入内容"];
     }else {
@@ -48,6 +65,7 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:GODCommentLikeNotification object:nil];
                 });
                 [self.navigationController popViewControllerAnimated:YES];
+                [self.tabBarController setSelectedIndex:3];
             }else {
                 [MFHUDManager showError:@"发布失败"];
             }
@@ -57,15 +75,17 @@
             [MFHUDManager showError:@"发布失败"];
         }];
     }
+    self.textView.text = @"";
     
 }
 
 -(UITextView *)textView {
     if (!_textView) {
-        _textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 160)];
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 20, 300)];
         _textView.textContainerInset = UIEdgeInsetsMake(15, 5, 0, 5);
         _textView.font = [UIFont systemFontOfSize:16];
-        
+        _textView.layer.borderColor = [UIColor grayColor].CGColor;
+        _textView.layer.borderWidth = 0.5;
     }
     return _textView;
 }

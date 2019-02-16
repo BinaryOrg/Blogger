@@ -14,7 +14,6 @@
 #import "UIColor+CustomColors.h"
 #import "GODAvatarTableViewCell.h"
 #import "GODConfigurationTableViewCell.h"
-#import "GODPostController.h"
 #import "GODLoginTelephoneViewController.h"
 #import "GODUserHeaderView.h"
 #import <QMUIKit.h>
@@ -40,7 +39,6 @@ UINavigationControllerDelegate
         _textList = @[
                       @"清除缓存",
                       @"联系作者",
-                      @"发布内容",
                       ];
     }
     return _textList;
@@ -186,17 +184,6 @@ UINavigationControllerDelegate
                 [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
             }
         });
-    }
-    else if (indexPath.row == 2) {
-        if ([GODUserTool shared].user.id.length == 0) {//没有登录
-            GODLoginTelephoneViewController *vc = [[GODLoginTelephoneViewController alloc] init];
-            vc.didLoginSuccessBlock = ^{
-                [self addHeaderView];
-            };
-            [self presentViewController:vc animated:YES completion:nil];
-        }else {
-            [self.navigationController pushViewController:[[GODPostController alloc] init] animated:YES];
-        }
     }
     else {
         [[GODUserTool shared] clearUserInfo];

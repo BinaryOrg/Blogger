@@ -44,7 +44,25 @@ JPUSHRegisterDelegate
 //    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 //    [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
     
-    
+    AVQuery *query = [AVQuery queryWithClassName:@"Config"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"pushKey"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            AVObject *testObject = objects.firstObject;
+            NSString *pushKey = [testObject objectForKey:@"pushKey"];
+            
+            if (pushKey.length) {
+                JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+                entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+                [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+                [JPUSHService setupWithOption:launchOptions appKey:pushKey
+                                      channel:channel
+                             apsForProduction:isProduction
+                        advertisingIdentifier:nil];
+            }
+        }
+    }];
     
     return YES;
 }

@@ -7,9 +7,8 @@
 //
 
 #import "GODAppendViewController.h"
-#import "GODTextView.h"
 @interface GODAppendViewController ()
-@property (nonatomic, strong) GODTextView *textView;
+@property (nonatomic, strong) UITextView *textView;
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (nonatomic, strong) UILabel *titleLb;
 @property (nonatomic, strong) UIButton *submitBtn;
@@ -153,17 +152,12 @@
     return _scrollView;
 }
 
--(GODTextView *)textView {
+-(UITextView *)textView {
     if (!_textView) {
-        _textView = [[GODTextView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 160)];
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 160)];
         _textView.textContainerInset = UIEdgeInsetsMake(15, 5, 0, 5);
-        _textView.interception = YES;
-        _textView.placehText = @"说说你的想法回复他吧";
         _textView.font = [UIFont systemFontOfSize:16];
-        _textView.placehLab.font = [UIFont systemFontOfSize:16];
-        _textView.promptFrameMaxY = 0;
-        _textView.promptTextColor = GODColor(188, 188, 188);
-        _textView.placehLab.frame = CGRectMake(10, 17, 200, 16);
+   
     }
     return _textView;
 }

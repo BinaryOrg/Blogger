@@ -14,6 +14,8 @@
 #import "GODMusicViewController.h"
 #import "GODPersonViewController.h"
 #import "GODDynamicController.h"
+#import "GODPostController.h"
+
 
 #import <XHLaunchAd.h>
 #import "GODAdModel.h"
@@ -95,10 +97,15 @@
             }else {
                 GODMainViewController *main = [[GODMainViewController alloc] init];
                 GODMusicViewController *music = [[GODMusicViewController alloc] init];
+                
+                GODPostController *post = [[GODPostController alloc] init];
+                
                 GODPersonViewController *person = [[GODPersonViewController alloc] init];
                 GODDynamicController *dynamic = [[GODDynamicController alloc] init];
                 UINavigationController *mainNavi = [[UINavigationController alloc] initWithRootViewController:main];
                 UINavigationController *personNavi = [[UINavigationController alloc] initWithRootViewController:person];
+                UINavigationController *postNavi = [[UINavigationController alloc] initWithRootViewController:post];
+
                 UINavigationController *musicNavi = [[UINavigationController alloc] initWithRootViewController:music];
                 UINavigationController *dynamicNavi = [[UINavigationController alloc] initWithRootViewController:dynamic];
                 
@@ -106,6 +113,7 @@
                 tabBarController.viewControllers = @[
                                                      mainNavi,
                                                      musicNavi,
+                                                     postNavi,
                                                      dynamicNavi,
                                                      personNavi
                                                      ];

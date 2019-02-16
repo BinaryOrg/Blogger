@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3704AB68221261D500D07862 /* GODPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3704AB67221261D500D07862 /* GODPostController.m */; };
-		3704AB6B221264A900D07862 /* GODTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3704AB69221264A900D07862 /* GODTextView.m */; };
 		37C0A08821F5C414000683B8 /* GODUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0A08721F5C414000683B8 /* GODUserHeaderView.m */; };
 		37D4819121F3039000BB6B2A /* GODLoginTelephoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819021F3039000BB6B2A /* GODLoginTelephoneViewController.m */; };
 		37D4819421F3044400BB6B2A /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D4819321F3044400BB6B2A /* NSString+Regex.m */; };
@@ -68,8 +67,6 @@
 		2D417275E62C96934989F346 /* Pods-Blogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blogger/Pods-Blogger.release.xcconfig"; sourceTree = "<group>"; };
 		3704AB66221261D500D07862 /* GODPostController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODPostController.h; sourceTree = "<group>"; };
 		3704AB67221261D500D07862 /* GODPostController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODPostController.m; sourceTree = "<group>"; };
-		3704AB69221264A900D07862 /* GODTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODTextView.m; sourceTree = "<group>"; };
-		3704AB6A221264A900D07862 /* GODTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODTextView.h; sourceTree = "<group>"; };
 		37C0A08621F5C414000683B8 /* GODUserHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GODUserHeaderView.h; sourceTree = "<group>"; };
 		37C0A08721F5C414000683B8 /* GODUserHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GODUserHeaderView.m; sourceTree = "<group>"; };
 		37D4818A21F2F1AE00BB6B2A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -206,8 +203,6 @@
 		37D4818021F2F0DB00BB6B2A /* GODPostViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3704AB6A221264A900D07862 /* GODTextView.h */,
-				3704AB69221264A900D07862 /* GODTextView.m */,
 				37D4818121F2F0DB00BB6B2A /* Controller */,
 			);
 			path = GODPostViewController;
@@ -768,7 +763,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3704AB6B221264A900D07862 /* GODTextView.m in Sources */,
 				37F50ADF21F4790500D6D152 /* GODDynamicCellNode.m in Sources */,
 				4A29FB7821F9A14800283BC9 /* GODNotification.m in Sources */,
 				5E1DB28821EE1B42009A477C /* GODCard.m in Sources */,
